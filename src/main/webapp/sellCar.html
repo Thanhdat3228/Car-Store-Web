@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Đăng bán xe - Car Store</title>
+    <link rel="stylesheet" href="css/sellCar.css" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+            rel="stylesheet" />
+</head>
+<body>
+<!-- Header -->
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="logo">Car Store</div>
+            <nav class="nav">
+                <a href="index.jsp">Trang chủ</a> <a href="home.jsp">Mua xe</a> <a
+                    href="sellCar.html">Đăng bán</a> <a href="gioi-thieu.html">Giới
+                thiệu</a> <a href="news.html">Tin tức</a>
+            </nav>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn btn-primary">Tìm xe</button>
+            <button class="btn btn-ghost">Hà Nội</button>
+        </div>
+    </div>
+</header>
+
+<h2>Đăng bán xe</h2>
+<form action="UploadCarToSellServlet" method="post"
+      enctype="multipart/form-data">
+    <label>Mã xe:</label> <input type="text" name="id" required> <label>Thương
+    hiệu:</label> <input type="text" name="brand" required> <label>Mẫu
+    xe:</label> <input type="text" name="model" required> <label>Năm
+    sản xuất:</label> <input type="number" name="year" required> <label>Số
+    km đã đi:</label> <input type="number" name="mileage" required> <label>Giá
+    bán:</label> <input type="number" name="price" required> <label>Vị
+    trí đăng bán:</label> <input type="text" name="location" required> <label>Mô
+    tả xe:</label>
+    <textarea name="description"></textarea>
+
+
+    <h3>Thông số kỹ thuật</h3>
+
+    <label>Số chỗ ngồi:</label> <input type="number" name="seat_Count"
+                                       required> <label>Kích thước (D x R x C):</label> <input
+        type="text" name="dimensions"
+        placeholder="Ví dụ: 4885 x 1840 x 1445 mm" required> <label>Tự
+    trọng / Tải trọng:</label> <input type="text" name="weight"
+                                      placeholder="Ví dụ: 1515 kg" required> <label>Khoảng
+    sáng gầm xe:</label> <input type="number" name="ground_clearance" required>
+    <label>Lốp, la-zăng:</label> <input type="text" name="wheels" required>
+    <label>Động cơ:</label> <input type="text" name="engine" required>
+    <label>Loại nhiên liệu:</label> <input type="text" name="fuel_type"
+                                           required> <label>Hình ảnh xe:</label> <input type="file"
+                                                                                        name="image" accept="image/*" required>
+
+    <button type="submit">Đăng bán xe</button>
+</form>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="brand-col">
+            <div class="logo">Car Store</div>
+            <p class="muted">Chợ ô tô tin cậy — Kết nối người mua và người
+                bán</p>
+        </div>
+        <div class="links-col">
+            <h4>Về chúng tôi</h4>
+            <ul>
+                <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div class="contact-col">
+            <h4>Hỗ trợ</h4>
+            <p class="muted">Hotline: 1900 0000</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">© 2025 AutoSieuLuot. Bản quyền thuộc về
+            AutoSieuLuot.</div>
+    </div>
+</footer>
+</body>
+</html>

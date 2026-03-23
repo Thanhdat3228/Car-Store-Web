@@ -1,0 +1,206 @@
+/* Import hệ thống màu từ Styles.css */
+@import url('Styles.css');
+
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-primary, #f8fafc);
+    color: var(--text-primary, #0f172a);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header - đồng bộ với trang chủ */
+.site-header {
+    background-color: var(--primary, #1e3a8a);
+    box-shadow: var(--shadow-sm, 0 1px 8px rgba(15, 23, 42, 0.06));
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-white, #ffffff);
+}
+
+.nav {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--text-white, #ffffff);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: var(--accent, #ffd700);
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Buttons - đồng bộ với hệ thống */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--primary-light, #0ea5e9);
+    color: var(--text-white, #ffffff);
+    border-color: var(--primary-light, #0ea5e9);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.12);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark, #0284c7);
+    border-color: var(--primary-dark, #0284c7);
+    transform: translateY(-1px);
+}
+
+.btn-ghost {
+    background: var(--bg-white, #ffffff);
+    border-color: var(--border-medium, #e6eef7);
+    color: var(--text-primary, #0f172a);
+}
+
+.btn-ghost:hover {
+    background: var(--bg-footer, #f1f5f9);
+}
+
+/* Nội dung chính */
+main.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+main h1 {
+    margin-bottom: 20px;
+    color: var(--primary, #1e3a8a);
+    font-size: 32px;
+    font-weight: 800;
+}
+
+main p {
+    margin-bottom: 15px;
+    color: var(--text-primary, #0f172a);
+    line-height: 1.8;
+}
+
+section {
+    margin-bottom: 35px;
+    background: var(--bg-white, #ffffff);
+    padding: 25px;
+    border-radius: var(--radius, 12px);
+    box-shadow: var(--shadow-md, 0 8px 24px rgba(2, 6, 23, 0.04));
+    border: 1px solid var(--border-light, rgba(2, 6, 23, 0.04));
+}
+
+section h2 {
+    margin-bottom: 15px;
+    color: var(--primary, #1e3a8a);
+    font-size: 24px;
+    font-weight: 700;
+    border-left: 4px solid var(--accent, #ffd700);
+    padding-left: 12px;
+}
+
+section p,
+section ul {
+    margin-left: 0;
+    color: var(--text-primary, #0f172a);
+}
+
+section ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+section ul li {
+    margin-bottom: 8px;
+    list-style: disc;
+    color: var(--text-primary, #0f172a);
+}
+
+/* Footer - đồng bộ với trang chủ */
+.site-footer {
+    background: var(--bg-white, #ffffff);
+    border-top: 1px solid var(--border-light, rgba(2, 6, 23, 0.04));
+    padding: 28px 0;
+    margin-top: 40px;
+}
+
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.site-footer p {
+    color: var(--text-muted, #64748b);
+    margin-bottom: 10px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: var(--primary-light, #0ea5e9);
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: var(--primary-dark, #0284c7);
+    text-decoration: underline;
+}

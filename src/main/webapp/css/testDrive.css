@@ -1,0 +1,80 @@
+.test-drive-container {
+	max-width: 600px;
+	margin: 60px auto;
+	padding: 30px 40px;
+	background: #ffffff;
+	border-radius: 14px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	font-family: Arial, sans-serif;
+}
+
+.test-drive-container h2 {
+	text-align: center;
+	margin-bottom: 30px;
+	color: #0d47a1;
+	letter-spacing: 1px;
+}
+
+.form-group {
+	margin-bottom: 18px;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	font-weight: 600;
+	margin-bottom: 6px;
+	color: #333;
+}
+
+.form-group label span {
+	color: red;
+}
+
+.form-group input {
+	padding: 12px 14px;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+}
+
+.form-group input:focus {
+	border-color: #1976d2;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
+}
+
+.form-group input[readonly] {
+	background: #f5f7fa;
+}
+
+.form-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 14px;
+	margin-top: 30px;
+}
+
+.btn-primary {
+	padding: 12px 24px;
+	background: #1976d2;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.btn-primary:hover {
+	background: #125aa0;
+}
+
+.btn-cancel {
+	color: #1976d2;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.btn-cancel:hover {
+	text-decoration: underline;
+}
