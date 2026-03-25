@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.UUID;
 
-@WebServlet(name = "UploadServlet", value = "/UploadServlet")
+@WebServlet(name = "UploadCarToSellServlet", value = "/UploadCarToSellServlet")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10, // 10MB
         maxRequestSize = 1024 * 1024 * 50 // 50MB

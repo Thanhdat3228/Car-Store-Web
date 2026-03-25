@@ -38,7 +38,7 @@ public class RegisterServlet extends HttpServlet {
             ps.setString(3, phoneNumber);
             ps.executeUpdate();
 
-            response.sendRedirect("login.jsp?registered=1");
+            response.sendRedirect("register.jsp?success=register");
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("login.jsp?error=2");

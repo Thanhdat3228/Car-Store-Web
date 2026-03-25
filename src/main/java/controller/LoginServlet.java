@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", username);
                 session.setAttribute("role", rs.getString("role")); // 'admin' hoặc 'user'
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("login.jsp?success=login");
             } else {
                 response.sendRedirect("login.jsp?error=1");
             }
