@@ -215,7 +215,7 @@
                     <button type="submit" class="btn btn-primary btn-large">
                         Đăng ký lái thử</button>
                 </form>
-                <button class="btn btn-ghost btn-large">Yêu thích</button>
+                <button class="btn btn-ghost btn-large">Liên hệ người bán</button>
             </div>
         </div>
     </div>
