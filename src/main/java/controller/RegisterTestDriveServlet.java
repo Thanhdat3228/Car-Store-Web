@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import dao.DBConnection;
 
-@WebServlet(name = "RegisterTestDrive", value = "/RegisterTestDrive")
+@WebServlet(name = "RegisterTestDriveServlet", value = "/RegisterTestDriveServlet")
 public class RegisterTestDriveServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
