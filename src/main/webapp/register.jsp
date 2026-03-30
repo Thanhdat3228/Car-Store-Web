@@ -9,6 +9,7 @@
     </head>
 
     <body>
+    <div class="center_wrapper">
         <div class="container">
             <h2>Đăng ký</h2>
             <form action="RegisterServlet" method="post">
@@ -30,6 +31,7 @@
                 <p>Đã có tài khoản? <a href="login.jsp">Đăng nhập</a></p>
             </div>
         </div>
+    </div>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
