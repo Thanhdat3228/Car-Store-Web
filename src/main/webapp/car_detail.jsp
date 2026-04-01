@@ -20,126 +20,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><%=car.getBrand()%> <%=car.getModel()%> - Car Store</title>
-    <link rel="stylesheet" href="css/Styles.css" />
+    <!-- css cho Toàn bộ trang-->
+    <link rel="stylesheet" href="css/Styles.css">
+    <link rel="stylesheet" href="css/carDetail.css" />
+    <!--css cho popup thong bao dien thong tin khach hang-->
+    <link rel="stylesheet" href="css/BuyCarNotice.css">
     <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
             rel="stylesheet" />
     <style>
-        .car-detail-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
 
-        .car-detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .car-image-section {
-            background: var(--bg-white, #ffffff);
-            border-radius: var(--radius, 12px);
-            overflow: hidden;
-            box-shadow: var(--shadow-md, 0 8px 24px rgba(2, 6, 23, 0.04));
-            border: 1px solid var(--border-light, rgba(2, 6, 23, 0.04));
-        }
-
-        .car-image-section img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .car-info-section {
-            background: var(--bg-white, #ffffff);
-            padding: 30px;
-            border-radius: var(--radius, 12px);
-            box-shadow: var(--shadow-md, 0 8px 24px rgba(2, 6, 23, 0.04));
-            border: 1px solid var(--border-light, rgba(2, 6, 23, 0.04));
-        }
-
-        .car-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary, #1e3a8a);
-            margin-bottom: 10px;
-        }
-
-        .car-subtitle {
-            color: var(--text-muted, #64748b);
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-light, rgba(2, 6, 23, 0.04));
-        }
-
-        .info-row:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            color: var(--text-muted, #64748b);
-            font-weight: 500;
-        }
-
-        .info-value {
-            color: var(--text-primary, #0f172a);
-            font-weight: 600;
-        }
-
-        .price-large {
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--primary-light, #0ea5e9);
-            margin: 20px 0;
-        }
-
-        .description-section {
-            background: var(--bg-white, #ffffff);
-            padding: 30px;
-            border-radius: var(--radius, 12px);
-            box-shadow: var(--shadow-md, 0 8px 24px rgba(2, 6, 23, 0.04));
-            border: 1px solid var(--border-light, rgba(2, 6, 23, 0.04));
-            margin-bottom: 40px;
-        }
-
-        .description-section h2 {
-            color: var(--primary, #1e3a8a);
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .description-section p {
-            color: var(--text-primary, #0f172a);
-            line-height: 1.8;
-            font-size: 16px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn-large {
-            padding: 14px 28px;
-            font-size: 16px;
-        }
-
-        @media ( max-width : 768px) {
-            .car-detail-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
@@ -215,7 +105,16 @@
                     <button type="submit" class="btn btn-primary btn-large">
                         Đăng ký lái thử</button>
                 </form>
-                <button class="btn btn-ghost btn-large">Liên hệ người bán</button>
+                <button id="buyBtn" class="btn btn-success btn-large">Đặt mua</button>
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeBtn" class="close">&times;</span>
+                        <h2>Thông báo</h2>
+                        <p>Quý khách vui lòng để lại thông tin để chúng tôi liên hệ tư vấn mua xe</p>
+                        <button id="goFormBtn">Điền thông tin</button>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -317,5 +216,6 @@
             AutoSieuLuot.</div>
     </div>
 </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>

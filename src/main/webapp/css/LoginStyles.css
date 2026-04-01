@@ -5,7 +5,7 @@
 	padding: 0;
 }
 
-body{
+body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -16,7 +16,7 @@ body{
 }
 
 /* Wrapper căn giữa form */
-.center_wrapper {;
+.center_wrapper {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
