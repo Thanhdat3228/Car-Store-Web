@@ -19,7 +19,7 @@ body {
 
 /* Variables - Hệ thống màu sắc đồng bộ */
 :root {
-    --container: 1200px;
+    --container: 1400px;
     /* Màu chủ đạo */
     --primary: #1e3a8a; /* Navy blue - Header */
     --primary-light: #0ea5e9; /* Sky blue - Buttons, links */
@@ -160,7 +160,7 @@ body {
     background: linear-gradient(135deg, var(--primary, #1e3a8a) 0%,
     var(--primary-dark, #0284c7) 100%);
     color: var(--text-white, #fff);
-    padding-bottom: 60px;
+    padding-bottom: 10px;
     overflow: hidden;
 }
 
@@ -441,7 +441,7 @@ body {
 
 .brand-col .logo {
     color: var(--primary-light);
-    font-weight: 800;
+    font-weight: 500;
     font-size: 18px;
     margin-bottom: 8px;
 }
