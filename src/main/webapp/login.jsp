@@ -9,22 +9,24 @@
     </head>
 
     <body>
-        <div class="container">
-            <h2>Đăng nhập</h2>
-            <form action="LoginServlet" method="post">
-                <div class="form-group">
-                    <input type="text" name="username" placeholder="Tên đăng nhập" required>
+        <div class="center_wrapper">
+            <div class="container">
+                <h2>Đăng nhập</h2>
+                <form action="LoginServlet" method="post">
+                    <div class="form-group">
+                        <input type="text" name="username" placeholder="Tên đăng nhập" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Mật khẩu" required>
+                    </div>
+                    <button type="submit" class="btn">Đăng nhập</button>
+
+                </form>
+
+
+                <div class="switch">
+                    <p>Bạn chưa có tài khoản? <a href="register.jsp">Đăng ký ngay</a></p>
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Mật khẩu" required>
-                </div>
-                <button type="submit" class="btn">Đăng nhập</button>
-
-            </form>
-
-
-            <div class="switch">
-                <p>Bạn chưa có tài khoản? <a href="register.jsp">Đăng ký ngay</a></p>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -45,6 +47,7 @@
                 }
             });
         </script>
+
     </body>
 
     </html>

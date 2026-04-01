@@ -150,6 +150,10 @@ body {
 .btn-white:hover {
     background: var(--bg-footer);
 }
+.btn-success{
+    background: chartreuse;
+    transition: all 0.2s;
+}
 
 /* Hero */
 .hero {
