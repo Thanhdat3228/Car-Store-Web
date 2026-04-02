@@ -45,6 +45,6 @@ public class MakeOfferServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        response.sendRedirect("success.jsp");
+        response.sendRedirect("success_offer.jsp");
     }
 }

@@ -60,7 +60,7 @@
                                 <p>Hàng trăm tin đăng xe cũ và mới, thông tin minh bạch, hỗ trợ
                                     mua bán dễ dàng.</p>
                                 <div class="hero-ctas">
-                                    <a class="btn btn-white" href="#buy"
+                                    <a class="btn btn-white" href="home.jsp"
                                         style="background: transparent; border: 2px solid; color: yellow; text-decoration: none">Xem
                                         xe ngay</a> <a class="btn btn-white" href="sellCar.html"
                                         style="background: transparent; border: 2px solid; color: red; text-decoration: none">Đăng
