@@ -94,3 +94,16 @@ CREATE TABLE users (
     phoneNumber VARCHAR(20) NOT NULL,
     role VARCHAR(20) DEFAULT 'user'
 );
+
+--tạo bảng thông tin người dùng mua xe
+CREATE TABLE offers(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(20),
+    message TEXT,
+    price DOUBLE,
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+

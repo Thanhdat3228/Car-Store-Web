@@ -109,9 +109,19 @@
                 <div id="modal" class="modal">
                     <div class="modal-content">
                         <span id="closeBtn" class="close">&times;</span>
-                        <h2>Thông báo</h2>
-                        <p>Quý khách vui lòng để lại thông tin để chúng tôi liên hệ tư vấn mua xe</p>
-                        <button id="goFormBtn">Điền thông tin</button>
+                        <h2>Gửi đề nghị giá</h2>
+                        <form action="MakeOfferServlet" method="post">
+                            <input type="text" name="firstName" placeholder="First Name" required>
+                            <input type="text" name="lastName" placeholder="Last Name" required>
+                            <input type="text" name="email" placeholder="Email" required>
+                            <input type="text" name="phone" placeholder="Phone Number" required>
+
+                            <textarea name="message" placeholder="Message"></textarea>
+
+                            <input type="number" name="price" placeholder="Request Price" required>
+                            <button type="submit">Submit</button>
+
+                        </form>
 
                     </div>
                 </div>
