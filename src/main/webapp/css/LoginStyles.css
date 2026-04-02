@@ -88,3 +88,20 @@ input[type="tel"]:focus {
 .switch a:hover {
 	text-decoration: underline;
 }
+.password-box{
+    position: relative;
+}
+
+.password-box input{
+    width: 100%;
+    padding-right: 45px;
+}
+
+.toggle-password{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}

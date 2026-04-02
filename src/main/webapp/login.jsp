@@ -16,8 +16,11 @@
                     <div class="form-group">
                         <input type="text" name="username" placeholder="Tên đăng nhập" required>
                     </div>
-                    <div class="form-group">
-                        <input type="password" name="password" placeholder="Mật khẩu" required>
+                    <div class="form-group password-box">
+                        <input type="password" id="password" name="password"
+                               placeholder="Mật khẩu" required>
+
+                        <span class="toggle-password" onclick="togglePassword()">👁</span>
                     </div>
                     <button type="submit" class="btn">Đăng nhập</button>
 
@@ -47,7 +50,15 @@
                 }
             });
         </script>
+<script>function togglePassword() {
+    const password = document.getElementById("password");
 
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+} </script>
     </body>
 
     </html>

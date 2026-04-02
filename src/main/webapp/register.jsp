@@ -16,12 +16,21 @@
                 <div class="form-group">
                     <input type="text" name="username" placeholder="Tên đăng nhập" required>
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Mật khẩu" required>
+                <div class="form-group password-box">
+                    <input type="password" id="password" name="password"
+                           placeholder="Mật khẩu"
+                           minlength="8"
+                           title="Mật khẩu phải có ít nhất 8 kí tự"
+                           required>
+
+                    <span class="toggle-password" onclick="togglePassword()">👁</span>
                 </div>
 
                 <div class="form-group">
-                    <input type="tel" name="phoneNumber" placeholder="Số điện thoại" required>
+                    <input type="tel" name="phoneNumber" placeholder="Số điện thoại"
+                                                         pattern="[0-9]{10}"
+                                                         maxlength="10"
+                                                         title="Số điện thoại phải đủ 10 chữ số" required>
                 </div>
 
                 <button type="submit" class="btn">Đăng ký</button>
@@ -49,7 +58,19 @@
                         });
                     }
             });
+
         </script>
+    <script>
+        function togglePassword() {
+            const password = document.getElementById("password");
+
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+        }
+    </script>
     </body>
 
     </html>
