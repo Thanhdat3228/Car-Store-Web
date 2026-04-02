@@ -155,4 +155,49 @@ public class CarDAO {
         }
         return list;
     }
+    public boolean deleteCar(int id) {
+        String sql = "DELETE FROM cars WHERE id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            int row = ps.executeUpdate();
+            return row > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public boolean updateCar(Car car){
+        String sql;
+        if(car.getImage()!=null && !car.getImage().isEmpty()){
+            sql="UPDATE cars SET brand=?, modal=?, year=?, mileage=?, price=?, location=?, description=?, image=? WHERE id=?";
+        }else{
+            sql = "UPDATE cars SET brand=?, model=?, year=?, mileage=?, price=?, location=?, description=? WHERE id=?";
+        }
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, car.getBrand());
+            ps.setString(2, car.getModel());
+            ps.setInt(3, car.getYear());
+            ps.setInt(4, car.getMileage());
+            ps.setDouble(5, car.getPrice());
+            ps.setString(6, car.getLocation());
+            ps.setString(7, car.getDescription());
+
+//            xu ly truong hop ko co anh
+            if(car.getImage()!=null && !car.getImage().isEmpty()){
+                ps.setString(8, car.getImage());
+                ps.setInt(9, car.getId());
+            }else {
+                ps.setInt(8,car.getId());
+            }
+            int row=ps.executeUpdate();
+            return row>0;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+
+    }
 }
