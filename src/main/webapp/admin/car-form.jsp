@@ -45,7 +45,7 @@
         </div>
 
         <div class="form-container">
-            <form action="/admin/${car != null ? 'updateCar' : 'addCar'}" method="post"
+            <form action="/UploadCarToSellServlet" method="post"
                   enctype="multipart/form-data">
                 <c:if test="${car != null}">
                     <input type="hidden" name="id" value="${car.id}">
@@ -153,7 +153,7 @@
                     <div class="form-group full-width" style="margin-top: 1rem;">
                         <button type="submit" class="btn btn-primary"
                                 style="width: 100%; font-size: 1.1rem; padding: 0.8rem;">
-                            ${car != null ? '<i class="fas fa-save"></i> Lưu Thay Đổi' : '<i class="fas fa-plus"></i> Đăng Bán Xe'}
+                            <form action="${pageContext.request.contextPath}/UploadCarToSellServlet" method="post" enctype="multipart/form-data"> <i>Đăng bán xe</i>
                         </button>
                     </div>
 
