@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/AccessDeniedStyle.css"/>
 </head>
 <body>
-<h2 class="success">Đăng ký thành công</h2>
+<h2 class="success">Đăng bán thành công</h2>
 <a href="index.jsp" class="back-home">Về trang chủ</a>
 </body>
 </html>
