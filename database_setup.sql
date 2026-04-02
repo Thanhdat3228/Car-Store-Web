@@ -28,7 +28,9 @@ INSERT INTO cars (brand, model, year, mileage, price, location, description, ima
 ('Mazda', 'Mazda 3', 2021, 30000, 450000000, 'Đà Nẵng', 'Thiết kế hiện đại, công nghệ tiên tiến, an toàn cao.', 'image/mazda-3.jpg'),
 ('Ford', 'Ranger Wildtrak', 2018, 80000, 650000000, 'Hà Nội', 'Xe bán tải mạnh mẽ, phù hợp địa hình khó khăn.', 'image/fordranger.jpg'),
 ('KIA', 'Carnival Signature 2.5', 2022, 12000, 1590000000, 'TP. Hồ Chí Minh', 'Xe 7 chỗ sang trọng, đầy đủ tiện nghi, phù hợp gia đình.', 'image/KIA.jpg'),
-('BMW', 'BMW 2025', 2025, 90000, 1330000000, 'Hà Nội', 'Xe cao cấp, công nghệ hiện đại nhất.', 'image/BMW.jpg');
+('BMW', 'BMW 2025', 2025, 90000, 1330000000, 'Hà Nội', 'Xe cao cấp, công nghệ hiện đại nhất.', 'image/BMW.jpg'),
+('Mercedes-Benz','Mercedes E200 Exclusive',2026,1300,2489000000,'TP. Hồ Chí Minh','Thiết kế tinh tế “Sensual Purity”, tạo nên hình ảnh sang trọng và đậm chất quý ông doanh nhân.','image/mercedes-benz_e200.jpg');
+
 
 
 -- Tạo bảng carSpecs(thông số kỹ thuật xe)
@@ -70,6 +72,9 @@ VALUES (5, 7, '5155 x 1995 x 1775 mm', 'Mâm 19 inch đa chấu', 2200, 180, '2.
 INSERT INTO car_specs (car_id, seat_count, dimensions, wheel_type, weight, ground_clearance, engine, fuel_type)
 VALUES (6, 5, '4820 x 1900 x 1450 mm', 'Mâm 19 inch thể thao', 1650, 145, '2.0L TwinPower Turbo hoặc hybrid', 'Xăng / Hybrid');
 
+-- Mercedes-Benz e200
+INSERT INTO car_specs (car_id, seat_count, dimensions, wheel_type, weight, ground_clearance, engine, fuel_type)
+VALUES (7, 5, '4949 x 1880 x 1468 mm', 'Mâm 18 inch hợp kim', 1707, 150, 'I4 2.0L TwinPower Turbo hoặc EQ Boost', 'Xăng');
 -- tạo bảng đăng ký lái thử
 CREATE TABLE test_drive_registration (
     id INT AUTO_INCREMENT PRIMARY KEY,
