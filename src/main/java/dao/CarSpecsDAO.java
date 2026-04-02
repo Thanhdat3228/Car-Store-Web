@@ -39,4 +39,24 @@ public class CarSpecsDAO {
         }
         return specs;
     }
+    public boolean updateCarSpecs(CarSpecs specs) {
+        String sql = "UPDATE car_specs SET seat_count=?, dimensions=?, wheel_type=?, weight=?, ground_clearance=?, engine=?, fuel_type=? WHERE car_id=?";
+        try (Connection conn = dao.DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, specs.getSeatCount());
+            ps.setString(2, specs.getDimensions());
+            ps.setString(3, specs.getWheelType());
+            ps.setInt(4, specs.getWeight());
+            ps.setInt(5, specs.getGroundClearance());
+            ps.setString(6, specs.getEngine());
+            ps.setString(7, specs.getFuelType());
+            ps.setInt(8, specs.getCarId());
+
+            int row = ps.executeUpdate();
+            return row > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
