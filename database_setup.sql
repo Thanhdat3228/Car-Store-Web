@@ -29,8 +29,9 @@ INSERT INTO cars (brand, model, year, mileage, price, location, description, ima
 ('Ford', 'Ranger Wildtrak', 2018, 80000, 650000000, 'Hà Nội', 'Xe bán tải mạnh mẽ, phù hợp địa hình khó khăn.', 'image/fordranger.jpg'),
 ('KIA', 'Carnival Signature 2.5', 2022, 12000, 1590000000, 'TP. Hồ Chí Minh', 'Xe 7 chỗ sang trọng, đầy đủ tiện nghi, phù hợp gia đình.', 'image/KIA.jpg'),
 ('BMW', 'BMW 2025', 2025, 90000, 1330000000, 'Hà Nội', 'Xe cao cấp, công nghệ hiện đại nhất.', 'image/BMW.jpg'),
-('Mercedes-Benz','Mercedes E200 Exclusive',2026,1300,2489000000,'TP. Hồ Chí Minh','Thiết kế tinh tế “Sensual Purity”, tạo nên hình ảnh sang trọng và đậm chất quý ông doanh nhân.','image/mercedes-benz_e200.jpg');
-
+('Mercedes-Benz','Mercedes E200 Exclusive',2026,1300,2489000000,'TP. Hồ Chí Minh','Thiết kế tinh tế “Sensual Purity”, tạo nên hình ảnh sang trọng và đậm chất quý ông doanh nhân.','image/mercedes-benz_e200.jpg'),
+('Mercedes-Benz', 'GLC 200 4Matic 2025', 2025, 8000, 1879000000, 'Hà Nội', 'SUV đột phá, công nghệ Mild-Hybrid tiết kiệm, dẫn động 4MATIC và MBUX 2.0 thông minh.', 'image/mercedes-benz_glc200_2025.jpg'),
+('Mercedes-Benz', 'GLC 200 4Matic 2022', 2025, 34000, 1399000000, 'Hà Nội', 'SUV hạng sang, nội thất rộng rãi, vận hành êm ái, lý tưởng cho gia đình.', 'image/mercedes-benz_glc200_2022.jpg');
 
 
 -- Tạo bảng carSpecs(thông số kỹ thuật xe)
@@ -75,6 +76,14 @@ VALUES (6, 5, '4820 x 1900 x 1450 mm', 'Mâm 19 inch thể thao', 1650, 145, '2.
 -- Mercedes-Benz e200
 INSERT INTO car_specs (car_id, seat_count, dimensions, wheel_type, weight, ground_clearance, engine, fuel_type)
 VALUES (7, 5, '4949 x 1880 x 1468 mm', 'Mâm 18 inch hợp kim', 1707, 150, 'I4 2.0L TwinPower Turbo hoặc EQ Boost', 'Xăng');
+
+--Mercedes-Benz GLC 200 4Matic 2025
+INSERT INTO car_specs (car_id, seat_count, dimensions, wheel_type, weight, ground_clearance, engine, fuel_type)
+VALUES (8, 5, '4670 x 1900 x 1650 mm', 'Mâm 18 inch hợp kim 5 chấu kép', 1760, 161, '2.0L I4 Tăng áp', 'Xăng');
+--Mercedes-Benz GLC 200 4MATIC 2022
+INSERT INTO car_specs (car_id, seat_count, dimensions, wheel_type, weight, ground_clearance, engine, fuel_type)
+VALUES (9, 5, '4716 x 1890 x 1640 mm', 'Mâm 19 inch hợp kim', 1925,	145, '2.0L I4 Mild-Hybrid hoặc EQ Boost',	'Xăng / Hybrid');
+
 -- tạo bảng đăng ký lái thử
 CREATE TABLE test_drive_registration (
     id INT AUTO_INCREMENT PRIMARY KEY,
