@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebFilter("/sellCar.html")
+@WebFilter({"/sellCar.html", "/admin/*"})
 @WebServlet(name = "RoleFilter", value = "/RoleFilter")
 public class RoleFilter implements Filter{
 

@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 
 import dao.DBConnection;
 import java.io.IOException;
+import org.mindrot.jbcrypt.BCrypt;
 
 @WebServlet(name = "RegisterServlet", value = "/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -30,11 +31,13 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String phoneNumber=request.getParameter("phoneNumber");
 
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+
         try (Connection conn = DBConnection.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(
                     "INSERT INTO users(username, password, phoneNumber, role) VALUES (?, ?, ?, 'user')");
             ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(2, hashedPassword);
             ps.setString(3, phoneNumber);
             ps.executeUpdate();
 
