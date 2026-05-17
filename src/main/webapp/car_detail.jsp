@@ -111,15 +111,15 @@
                         <span id="closeBtn" class="close">&times;</span>
                         <h2>Gửi đề nghị giá</h2>
                         <form action="MakeOfferServlet" method="post">
-                            <input type="text" name="firstName" placeholder="First Name" required>
-                            <input type="text" name="lastName" placeholder="Last Name" required>
+                            <input type="text" name="firstName" placeholder="Tên" required>
+                            <input type="text" name="lastName" placeholder="Họ và lót" required>
                             <input type="text" name="email" placeholder="Email" required>
-                            <input type="text" name="phone" placeholder="Phone Number" required>
+                            <input type="text" name="phone" placeholder="Số điện thoại" required>
 
-                            <textarea name="message" placeholder="Message"></textarea>
+                            <textarea name="message" placeholder="Lời đề nghị của bạn"></textarea>
 
-                            <input type="number" name="price" placeholder="Request Price" required>
-                            <button type="submit">Submit</button>
+                            <input type="number" name="price" placeholder="Giá mong muốn" required>
+                            <button type="submit">Gửi</button>
 
                         </form>
 
