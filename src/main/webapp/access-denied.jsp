@@ -15,6 +15,7 @@
 </head>
 <body>
 <h2 class="access-denied">Bạn không có quyền truy cập chức năng này. Vui lòng liên hệ admin để biết thêm thông tin chi tiết</h2>
-<a href="index.jsp" class="back-home">Quay lại trang chủ</a>
+<a href="index.jsp" class="btn back-home">Quay lại trang chủ</a>
+<a href="login.jsp" class="btn login-now"> Đăng nhập ngay</a>
 </body>
 </html>

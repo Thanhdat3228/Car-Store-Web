@@ -105,7 +105,7 @@
                     <button type="submit" class="btn btn-primary btn-large">
                         Đăng ký lái thử</button>
                 </form>
-                <button id="buyBtn" class="btn btn-success btn-large">Đặt mua</button>
+                <button id="buyBtn" class="btn btn-success btn-large">Liên hệ</button>
                 <div id="modal" class="modal">
                     <div class="modal-content">
                         <span id="closeBtn" class="close">&times;</span>

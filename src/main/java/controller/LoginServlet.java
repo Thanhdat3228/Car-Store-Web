@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import org.mindrot.jbcrypt.BCrypt;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -35,16 +36,25 @@ public class LoginServlet extends HttpServlet {
 
         try (Connection conn = DBConnection.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(
-                    "SELECT * FROM users WHERE username=? AND password=?");
+                    "SELECT * FROM users WHERE username=?");
             ps.setString(1, username);
-            ps.setString(2, password);
+
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", username);
-                session.setAttribute("role", rs.getString("role")); // 'admin' hoặc 'user'
-                response.sendRedirect("login.jsp?success=login");
+                String hashedPassword = rs.getString("password");
+
+                //so sanh mat khau vao voi hash trong DB
+                if(BCrypt.checkpw(password, hashedPassword)){
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", username);
+                    session.setAttribute("role", rs.getString("role")); // 'admin' hoặc 'user'
+                    response.sendRedirect("login.jsp?success=login");
+                }
+                else {
+                    response.sendRedirect("login.jsp?error=1");
+                }
+
             } else {
                 response.sendRedirect("login.jsp?error=1");
             }
