@@ -5,7 +5,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-@WebFilter("/sellCar.html")
+@WebFilter("/sellCar.jsp")
 @WebServlet(name = "AuthFilter", value = "/AuthFilter")
 public class AuthFilter implements Filter {
 

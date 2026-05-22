@@ -1,3 +1,6 @@
+<%@ include file="headerForAll.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -11,24 +14,6 @@
     />
 </head>
 <body>
-<header class="site-header">
-    <div class="container header-inner">
-        <div class="brand">
-            <div class="logo">Car Store</div>
-            <nav class="nav">
-                <a href="index.jsp">Trang chủ</a>
-                <a href="home.jsp">Mua xe</a>
-                <a href="sellCar.html">Đăng bán</a>
-                <a href="gioi-thieu.html">Giới thiệu</a>
-                <a href="news.html">Tin tức</a>
-            </nav>
-        </div>
-        <div class="header-actions">
-            <button class="btn btn-primary">Tìm xe</button>
-            <button class="btn btn-ghost">Hà Nội</button>
-        </div>
-    </div>
-</header>
 
 <main class="container">
     <h1>Giới thiệu về Car Auto</h1>

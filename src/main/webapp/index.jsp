@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
             <%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
@@ -7,8 +8,7 @@
                     <jsp:forward page="HomeServlet" />
                 </c:if>
 
-
-
+<%@ include file="headerForAll.jsp" %>
                 <!DOCTYPE html>
                 <html lang="vi">
 
@@ -23,34 +23,6 @@
                 </head>
 
                 <body>
-                    <!-- Header -->
-                    <header class="site-header">
-                        <div class="container header-inner">
-                            <div class="brand">
-                                <div class="logo">Car Store</div>
-                                <nav class="nav">
-                                    <a href="index.jsp">Trang chủ</a> <a href="home.jsp">Mua xe</a> <a
-                                        href="sellCar.html">Đăng bán</a> <a href="gioi-thieu.html">Giới
-                                        thiệu</a> <a href="news.html">Tin tức</a>
-                                </nav>
-                            </div>
-
-                            <c:if test="${not empty sessionScope.user}">
-                                <div class="user-profile">
-                                    <span class="greeting" style="color: white">Xin chào,
-                                        <strong>${sessionScope.user}</strong></span>
-                                    <a href="LogoutServlet" class="logout-btn"
-                                        style="color: purple; text-decoration: none">[Đăng xuất]</a>
-                                </div>
-                            </c:if>
-
-
-                        </div>
-
-
-
-
-                    </header>
 
                     <!-- Hero + Search -->
                     <section class="hero">
