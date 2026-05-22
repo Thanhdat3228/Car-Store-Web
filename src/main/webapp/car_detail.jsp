@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ include file="headerForAll.jsp" %>
 <%@ page import="model.Car"%>
 <%@ page import="model.CarSpecs"%>
 <%
@@ -33,24 +34,6 @@
     </style>
 </head>
 <body>
-<!-- Header -->
-<header class="site-header">
-    <div class="container header-inner">
-        <div class="brand">
-            <div class="logo">Car Store</div>
-            <nav class="nav">
-                <a href="index.jsp">Trang chủ</a> <a href="home.jsp">Mua xe</a> <a
-                    href="sellCar.html">Đăng bán</a> <a href="gioi-thieu.html">Giới
-                thiệu</a> <a href="news.html">Tin tức</a>
-            </nav>
-        </div>
-
-        <div class="header-actions">
-            <button class="btn btn-primary">Tìm xe</button>
-            <button class="btn btn-ghost">Hà Nội</button>
-        </div>
-    </div>
-</header>
 
 <!-- Main content -->
 <main class="car-detail-container">
@@ -212,7 +195,7 @@
         <div class="links-col">
             <h4>Về chúng tôi</h4>
             <ul>
-                <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                <li><a href="gioi-thieu.jsp">Giới thiệu</a></li>
                 <li><a href="#contact">Liên hệ</a></li>
             </ul>
         </div>
