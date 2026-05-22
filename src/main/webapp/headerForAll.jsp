@@ -24,7 +24,7 @@
                                     <span class="greeting" style="color: white">Xin chào,
                                         <strong>${sessionScope.user}</strong></span>
           <a href="LogoutServlet" class="logout-btn"
-             style="color: purple; text-decoration: none">[Đăng xuất]</a>
+             style="color: purple; text-decoration: none">Đăng xuất</a>
         </div>
       </c:if>
 
