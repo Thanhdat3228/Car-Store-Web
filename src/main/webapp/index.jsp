@@ -34,7 +34,7 @@
                                 <div class="hero-ctas">
                                     <a class="btn btn-white" href="home.jsp"
                                         style="background: transparent; border: 2px solid; color: yellow; text-decoration: none">Xem
-                                        xe ngay</a> <a class="btn btn-white" href="sellCar.html"
+                                        xe ngay</a> <a class="btn btn-white" href="sellCar.jsp"
                                         style="background: transparent; border: 2px solid; color: red; text-decoration: none">Đăng
                                         bán xe</a>
                                 </div>
