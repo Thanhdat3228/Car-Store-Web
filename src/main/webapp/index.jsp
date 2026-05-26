@@ -16,6 +16,7 @@
                     <title>Chợ ô tô</title>
                     <meta name="description" content="Chợ ô tô - Tìm, so sánh và mua xe nhanh chóng" />
                     <link rel="stylesheet" href="css/Styles.css" />
+                    <link rel="stylesheet" href="css/Car_Card.css">
                     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
                         rel="stylesheet" />
                 </head>
@@ -185,28 +186,34 @@
                             <div class="grid-cards">
                                 <c:forEach var="car" items="${carList}">
                                     <article class="card car-card">
-                                        <a href="CarDetailServlet?id=${car.id}"
-                                            style="text-decoration: none; color: inherit">
+                                        <a href="CarDetailServlet?id=${car.id}" class="card-link">
                                             <div class="card-media">
-                                                <img src="${car.image}" alt="${car.brand}${car.model}" />
+                                                <img src="${car.image}" alt="${car.brand} ${car.model}" />
                                                 <button class="fav" aria-label="Yêu thích">♥</button>
                                             </div>
                                             <div class="card-body">
-                                                <h4>${car.brand} ${car.model}</h4>
-                                                <p class="muted">${car.year}• ${car.mileage} km</p>
-                                                <div class="card-footer">
-                                                    <div class="price">
-                                                        <fmt:formatNumber value="${car.price}" type="number"
-                                                            groupingUsed="true" />
-                                                        ₫
-                                                    </div>
-                                                    <div class="location">${car.location}</div>
+                                                <h4 class="card-title">${car.brand} ${car.model}</h4>
+                                                <div class="card-info">
+                                                    <span>📅 ${car.year}</span>
+                                                    <span>🚗 ${car.mileage} km</span>
+                                                    <span>👥 ${car.specs.seatCount} chỗ</span>
+                                                    <span>⛽ ${car.specs.fuelType}</span>
+                                                    <span>📍 ${car.location}</span>
                                                 </div>
-                                            </div>
+                                                    <div class="price">
+                                                        <fmt:formatNumber value="${car.price}" type="number" groupingUsed="true" /> ₫
+                                                    </div>
+                                                <div class="card-footer">
+                                                    <button class="btn btn-primary">Liên hệ</button>
+                                                </div>
+                                                </div>
+
                                         </a>
                                     </article>
+
                                 </c:forEach>
                             </div>
+
                         </section>
 
 
