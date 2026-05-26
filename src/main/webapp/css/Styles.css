@@ -519,3 +519,15 @@ body {
 .logout-btn:hover {
     background-color: #cc0000;
 }
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent); /* vàng */
+    color: var(--text-primary);
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    box-shadow: var(--shadow-sm);
+}

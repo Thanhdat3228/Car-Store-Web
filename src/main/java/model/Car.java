@@ -10,6 +10,8 @@ public class Car {
     private String location;
     private String description;
     private String image;
+    private CarSpecs specs;
+
     public int getId() {
         return id;
     }
@@ -63,5 +65,14 @@ public class Car {
     }
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public CarSpecs getSpecs() {
+        return specs;
+    }
+
+
+    public void setSpec(CarSpecs specs) {
+        this.specs=specs;
     }
 }
