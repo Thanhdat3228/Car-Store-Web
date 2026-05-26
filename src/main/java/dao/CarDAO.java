@@ -170,7 +170,7 @@ public class CarDAO {
     public boolean updateCar(Car car){
         String sql;
         if(car.getImage()!=null && !car.getImage().isEmpty()){
-            sql="UPDATE cars SET brand=?, modal=?, year=?, mileage=?, price=?, location=?, description=?, image=? WHERE id=?";
+            sql="UPDATE cars SET brand=?, model=?, year=?, mileage=?, price=?, location=?, description=?, image=? WHERE id=?";
         }else{
             sql = "UPDATE cars SET brand=?, model=?, year=?, mileage=?, price=?, location=?, description=? WHERE id=?";
         }
@@ -199,5 +199,84 @@ public class CarDAO {
         }
         return false;
 
+    }
+    public List<Car> filterCars(String brand,
+                                String year,
+                                String price) {
+
+        List<Car> list = new ArrayList<>();
+
+        String sql = "SELECT * FROM cars WHERE 1=1 ";
+
+        // lọc theo brand
+        if (brand != null && !brand.isEmpty()) {
+            sql += "AND LOWER(TRIM(brand)) = LOWER(TRIM(?)) ";
+        }
+        // lọc year
+        if (year != null && !year.isEmpty()) {
+            sql += "AND year = ? ";
+        }
+        // lọc price
+        if (price != null && !price.isEmpty()) {
+
+            switch (price) {
+
+                case "under200":
+                    sql += "AND price < 200000000 ";
+                    break;
+
+                case "200to500":
+                    sql += "AND price BETWEEN 200000000 AND 500000000 ";
+                    break;
+
+                case "500to1b":
+                    sql += "AND price BETWEEN 500000000 AND 1000000000 ";
+                    break;
+
+                case "over1b":
+                    sql += "AND price > 1000000000 ";
+                    break;
+            }
+        }
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            int index = 1;
+
+            // set hãng
+            if (brand != null && !brand.isEmpty()) {
+                ps.setString(index++, brand);
+            }
+
+            // set năm
+            if (year != null && !year.isEmpty()) {
+                ps.setInt(index++, Integer.parseInt(year));
+            }
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Car car = new Car();
+
+                car.setId(rs.getInt("id"));
+                car.setBrand(rs.getString("brand"));
+                car.setModel(rs.getString("model"));
+                car.setYear(rs.getInt("year"));
+                car.setMileage(rs.getInt("mileage"));
+                car.setPrice(rs.getDouble("price"));
+                car.setLocation(rs.getString("location"));
+                car.setImage(rs.getString("image"));
+                car.setDescription(rs.getString("description"));
+
+                list.add(car);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }

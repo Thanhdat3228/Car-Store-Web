@@ -4,9 +4,7 @@
         <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
             <%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
 
-                <c:if test="${empty carList}">
-                    <jsp:forward page="HomeServlet" />
-                </c:if>
+               
 
 <%@ include file="headerForAll.jsp" %>
                 <!DOCTYPE html>
@@ -51,38 +49,93 @@
 
                     <!-- Main content -->
                     <main class="container main-grid" id="buy">
-                        <!-- Sidebar filters -->
+                        <!-- Bộ lọc nâng cao -->
                         <aside class="filters">
                             <div class="card">
                                 <h3>Bộ lọc</h3>
 
-                                <label class="field-label">Hãng</label> <select>
-                                    <option value="">Tất cả</option>
-                                    <option>Kia</option>
-                                    <option>Honda</option>
-                                    <option>Mazda</option>
-                                    <option>Ford</option>
-                                    <option>Mercedes</option>
-                                    <option>Toyota</option>
-                                </select> <label class="field-label">Năm</label> <select>
-                                    <option value="">Tất cả</option>
-                                    <option>2022</option>
-                                    <option>2021</option>
-                                    <option>2020</option>
-                                    <option>2019</option>
-                                    <option>2018</option>
-                                </select> <label class="field-label">Nhiên liệu</label> <select>
-                                    <option value="">Tất cả</option>
-                                    <option>Petrol(Xăng)</option>
-                                    <option>Diesel(Dầu)</option>
-                                    <option>Electric(Điện)</option>
-                                </select> <label class="field-label">Khoảng giá</label> <select>
-                                    <option value="">Tất cả</option>
-                                    <option>Dưới 200 triệu</option>
-                                    <option>200 triệu - 500 triệu</option>
-                                    <option>500 triệu - 1 tỷ</option>
-                                    <option>Trên 1 tỷ</option>
-                                </select>
+                                <form action="AdvancedFilterServlet" method="get">
+
+                                    <!-- Hãng -->
+                                    <label class="field-label">Hãng</label>
+                                    <select name="brand">
+                                        <option value="">Tất cả</option>
+                                        <option value="Kia"
+                                        ${param.brand == 'Kia' ? 'selected' : ''}>
+                                            Kia
+                                        </option>
+                                        <option value="Honda"
+                                        ${param.brand == 'Honda' ? 'selected' : ''}>
+                                            Honda
+                                        </option>
+                                        <option value="Mazda"
+                                        ${param.brand == 'Mazda' ? 'selected' : ''}>
+                                            Mazda
+                                        </option>
+                                        <option value="Ford"
+                                        ${param.brand == 'Ford' ? 'selected' : ''}>
+                                            Ford
+                                        </option>
+                                        <option value="Mercedes"
+                                        ${param.brand == 'Mercedes' ? 'selected' : ''}>
+                                            Mercedes
+                                        </option>
+                                        <option value="Toyota"
+                                        ${param.brand == 'Toyota' ? 'selected' : ''}>
+                                            Toyota
+                                        </option>
+                                    </select>
+
+                                    <!-- Năm -->
+                                    <label class="field-label">Năm</label>
+                                    <select name="year">
+                                        <option value="">Tất cả</option>
+                                        <option value="2022"
+                                        ${param.year == '2022' ? 'selected' : ''}>
+                                            2022
+                                        </option>
+                                        <option value="2021"
+                                        ${param.year == '2021' ? 'selected' : ''}>
+                                            2021
+                                        </option>
+                                        <option value="2020"
+                                        ${param.year == '2020' ? 'selected' : ''}>
+                                            2020
+                                        </option>
+                                        <option value="2019"
+                                        ${param.year == '2019' ? 'selected' : ''}>
+                                            2019
+                                        </option>
+                                        <option value="2018"
+                                        ${param.year == '2018' ? 'selected' : ''}>
+                                            2018
+                                        </option>
+                                    </select>
+                                    <!-- Giá -->
+                                    <label class="field-label">Khoảng giá</label>
+                                    <select name="price" >
+                                        <option value="">Tất cả</option>
+                                        <option value="under200"
+                                        ${param.price == 'under200' ? 'selected' : ''}>
+                                            Dưới 200 triệu
+                                        </option>
+                                        <option value="200to500"
+                                        ${param.price == '200to500' ? 'selected' : ''}>
+                                            200 triệu - 500 triệu
+                                        </option>
+                                        <option value="500to1b"
+                                        ${param.price == '500to1b' ? 'selected' : ''}>
+                                            500 triệu - 1 tỷ
+                                        </option>
+                                        <option value="over1b"
+                                        ${param.price == 'over1b' ? 'selected' : ''}>
+                                            Trên 1 tỷ
+                                        </option>
+                                    </select>
+                                    <button type="submit" class="filter-btn">
+                                        Lọc xe
+                                    </button>
+                                </form>
                             </div>
                         </aside>
 
@@ -91,7 +144,17 @@
                             <div class="listings-header">
                                 <div>
                                     <h2>Kết quả tìm kiếm</h2>
-                                    <p class="muted">${fn:length(carList)} xe tìm thấy</p>
+                                    <p class="muted">
+                                        <c:choose>
+                                            <c:when test="${not empty carList}">
+                                                ${fn:length(carList)} xe tìm thấy
+                                            </c:when>
+                                            <c:otherwise>
+                                                Không tìm thấy xe
+                                            </c:otherwise>
+
+                                        </c:choose>
+                                    </p>
                                 </div>
 
                                 <form action="SortServlet" method="get">
