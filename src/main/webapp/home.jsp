@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="dao.DBConnection"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ include file="headerForAll.jsp" %>
 <!DOCTYPE html>
 <html lang="vi">
@@ -26,8 +28,7 @@
 
     <%
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/car_store", "root", "");
+            Connection conn = DBConnection.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
 
@@ -106,9 +107,12 @@
     <%
         }
         conn.close();
-    } catch (ClassNotFoundException e) {
+    } catch (Exception e) {
+        e.printStackTrace();
     %>
-
+    <div style="text-align: center; padding: 40px 20px;">
+        <p class="muted">Không thể tải danh sách xe. Vui lòng thử lại sau.</p>
+    </div>
 
     <%
         }
