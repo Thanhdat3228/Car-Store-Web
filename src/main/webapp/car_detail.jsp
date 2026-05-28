@@ -206,10 +206,9 @@
                     <article class="card car-card">
                         <a href="CarDetailServlet?id=${rCar.id}" class="card-link">
                             <div class="card-media">
-                                //Nếu đường dẫn ảnh đã bắt đầu bằng "image/" thì giữ nguyên
-                                //chưa, thì thêm "image/" vào trước tên file
+
                                 <c:set var="rImg" value="${empty rCar.image ?'image/logo.png' : (rCar.image.startsWith('image/') ? rCar.image : 'image/'.concat(rCar.image))}"/>
-                                //hiển thị ảnh
+
                                 <img src="${rImg}" alt="${rCar.brand} ${rCar.model}"/>
 
                             </div>
@@ -224,7 +223,7 @@
                                     <fmt:formatNumber value="${rCar.price}" type="number" groupingUsed="true"/>₫
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-primary">Liên hệ</button>
+                                    <button class="btn btn-primary">Khám phá</button>
                                 </div>
                             </div>
                         </a>
