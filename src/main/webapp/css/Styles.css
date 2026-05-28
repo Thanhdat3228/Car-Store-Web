@@ -530,3 +530,42 @@ body {
     font-size: 13px;
     box-shadow: var(--shadow-sm);
 }
+.filter-btn{ width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#0ea5e9;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s; }
+.filter-btn:hover{ background:#0284c7;
+}
+.keyword{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.keyword input{
+    flex:1;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.search-btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    background:#0ea5e9;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.search-btn:hover{
+    background:#0284c7;
+}

@@ -176,7 +176,7 @@
                                 <form action="SearchCarServlet" method="get">
                                     <div class="keyword">
                                         <input type="text" name="keyword" placeholder="Nhập tên xe cần tìm..." />
-                                        <button type="submit">Tìm</button>
+                                        <button type="submit" class="search-btn">Tìm</button>
                                     </div>
                                 </form>
 
