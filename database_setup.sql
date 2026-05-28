@@ -121,3 +121,34 @@ CREATE TABLE offers(
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
+    -- ============================================
+-- Migration: Thêm bảng car_images (nhiều ảnh/xe)
+-- Chạy file này trong MySQL
+-- ============================================
+
+-- Tạo bảng car_images
+CREATE TABLE IF NOT EXISTS car_images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    car_id INT NOT NULL,
+    image_path VARCHAR(500) NOT NULL,-- đường dẫn tương đối, ví dụ: image/abc.jpg
+    sort_order INT NOT NULL DEFAULT 0, -- thứ tự hiển thị (0 = ảnh đầu tiên)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (car_id) REFERENCES cars(id) ON DELETE CASCADE
+    );
+
+-- ============================================
+--thêm ảnh phụ
+-- ============================================
+INSERT INTO car_images (car_id, image_path, sort_order)
+SELECT id, image, 0
+FROM cars
+WHERE image IS NOT NULL AND image != '';
+
+-- ============================================
+-- Ví dụ thêm ảnh phụ thủ công cho xe có ID = 1 (Toyota Camry):
+-- ============================================
+-- INSERT INTO car_images (car_id, image_path, sort_order) VALUES (1, 'image/tên-ảnh.jpg', 1);
+-- INSERT INTO car_images (car_id, image_path, sort_order) VALUES (1, 'image/tên-ảnh.jpg', 2);
+-- INSERT INTO car_images (car_id, image_path, sort_order) VALUES (1, 'image/tên-ảnh.jpg', 3);
+
+

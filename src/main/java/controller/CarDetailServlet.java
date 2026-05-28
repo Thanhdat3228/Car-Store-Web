@@ -7,8 +7,10 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import dao.CarDAO;
 import dao.CarSpecsDAO;
+import dao.CarImageDAO;
 import model.Car;
 import model.CarSpecs;
+import java.util.List;
 
 @WebServlet(name = "CarDetailServlet", value = "/CarDetailServlet")
 public class CarDetailServlet extends HttpServlet {
@@ -43,8 +45,17 @@ public class CarDetailServlet extends HttpServlet {
             CarSpecsDAO specsDao = new CarSpecsDAO();
             CarSpecs specs = specsDao.getSpecsByCarId(id);
 
+            // Lấy danh sách ảnh gallery từ bảng car_images
+            CarImageDAO imageDao = new CarImageDAO();
+            List<String> imageList = imageDao.getImagesByCarId(id);
+            // Nếu chưa có ảnh phụ, dùng ảnh chính của xe làm fallback
+            if (imageList.isEmpty() && car.getImage() != null && !car.getImage().isEmpty()) {
+                imageList.add(car.getImage());
+            }
+
             request.setAttribute("car", car);
             request.setAttribute("specs", specs);
+            request.setAttribute("imageList", imageList);
             RequestDispatcher rd = request.getRequestDispatcher("car_detail.jsp");
             rd.forward(request, response);
 
