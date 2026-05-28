@@ -48,6 +48,27 @@
 	background: #f5f7fa;
 }
 
+.form-group input[type="date"]:invalid,
+.form-group input[type="time"]:invalid {
+	background: #f8fafc;
+	color: #94a3b8;
+}
+
+.field-hint {
+	margin-top: 6px;
+	color: #64748b;
+	font-size: 12px;
+}
+
+.form-error {
+	margin: 0 0 18px;
+	padding: 12px 14px;
+	border-radius: 8px;
+	background: #fff1f2;
+	color: #be123c;
+	font-size: 14px;
+}
+
 .form-actions {
 	display: flex;
 	justify-content: flex-end;

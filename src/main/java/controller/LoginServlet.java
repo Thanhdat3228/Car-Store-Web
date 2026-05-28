@@ -4,7 +4,6 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-import java.io.IOException;
 import dao.DBConnection;
 import java.io.IOException;
 import java.sql.Connection;
@@ -48,8 +47,16 @@ public class LoginServlet extends HttpServlet {
                 if(BCrypt.checkpw(password, hashedPassword)){
                     HttpSession session = request.getSession();
                     session.setAttribute("user", username);
+                    session.setAttribute("userPhone", rs.getString("phoneNumber"));
                     session.setAttribute("role", rs.getString("role")); // 'admin' hoặc 'user'
-                    response.sendRedirect("login.jsp?success=login");
+
+                    String redirectAfterLogin = (String) session.getAttribute("redirectAfterLogin");
+                    if (redirectAfterLogin != null && !redirectAfterLogin.trim().isEmpty()) {
+                        session.removeAttribute("redirectAfterLogin");
+                        response.sendRedirect(redirectAfterLogin);
+                    } else {
+                        response.sendRedirect("login.jsp?success=login");
+                    }
                 }
                 else {
                     response.sendRedirect("login.jsp?error=1");
