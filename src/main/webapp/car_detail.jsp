@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/carDetail.css" />
     <!--css cho popup thong bao dien thong tin khach hang-->
     <link rel="stylesheet" href="css/BuyCarNotice.css">
+    <link rel="stylesheet" href="css/Car_Card.css">
     <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
             rel="stylesheet" />
@@ -194,6 +195,43 @@
             </div>
         </c:otherwise>
     </c:choose>
+
+    <!--hiển thị xe liên quan-->
+    <c:if test="${not empty relatedCars}">
+        <div class="description-section related-cars-section">
+            <h2 style="text-align:center; font-size: 24px;margin-bottom: 25px;">Bạn có thể quan tâm</h2>
+
+            <div class="grid-cards" style="grid-template-columns: repeat(4, 1fr);gap: 20px;">
+                <c:forEach var="rCar" items="${relatedCars}">
+                    <article class="card car-card">
+                        <a href="CarDetailServlet?id=${rCar.id}" class="card-link">
+                            <div class="card-media">
+                                //Nếu đường dẫn ảnh đã bắt đầu bằng "image/" thì giữ nguyên
+                                //chưa, thì thêm "image/" vào trước tên file
+                                <c:set var="rImg" value="${empty rCar.image ?'image/logo.png' : (rCar.image.startsWith('image/') ? rCar.image : 'image/'.concat(rCar.image))}"/>
+                                //hiển thị ảnh
+                                <img src="${rImg}" alt="${rCar.brand} ${rCar.model}"/>
+
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">${rCar.brand} ${rCar.model}</h4>
+                                <div class="card-info">
+                                    <span>📅 ${rCar.year}</span>
+                                    <span>🚗 <fmt:formatNumber value="${rCar.mileage}" type="number" groupingUsed="true"/> km</span>
+                                    <span>📍 ${rCar.location}</span>
+                                </div>
+                                <div class="price">
+                                    <fmt:formatNumber value="${rCar.price}" type="number" groupingUsed="true"/>₫
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-primary">Liên hệ</button>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                </c:forEach>
+        </div>
+    </c:if>
 
     <!-- Back button -->
     <div style="text-align: center; margin-bottom: 40px;">
