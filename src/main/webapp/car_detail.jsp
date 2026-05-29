@@ -20,6 +20,7 @@
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
             rel="stylesheet" />
 </head>
+
 <body>
 
 <!-- Kiểm tra car có tồn tại không -->
@@ -72,7 +73,6 @@
 
         </div>
 
-        <!-- Info Section -->
         <div class="car-info-section">
             <h1 class="car-title">
                 <c:out value="${car.brand}"/> <c:out value="${car.model}"/>
@@ -91,20 +91,24 @@
                 <span class="info-label">Thương hiệu:</span>
                 <span class="info-value"><c:out value="${car.brand}"/></span>
             </div>
+
             <div class="info-row">
                 <span class="info-label">Mẫu xe:</span>
                 <span class="info-value"><c:out value="${car.model}"/></span>
             </div>
+
             <div class="info-row">
                 <span class="info-label">Năm sản xuất:</span>
                 <span class="info-value"><c:out value="${car.year}"/></span>
             </div>
+
             <div class="info-row">
                 <span class="info-label">Số km đã đi:</span>
                 <span class="info-value">
                     <fmt:formatNumber value="${car.mileage}" type="number" groupingUsed="true"/> km
                 </span>
             </div>
+
             <div class="info-row">
                 <span class="info-label">Địa điểm:</span>
                 <span class="info-value"><c:out value="${car.location}"/></span>
@@ -117,12 +121,17 @@
                         Đăng ký lái thử
                     </button>
                 </form>
+
                 <button id="buyBtn" class="btn btn-success btn-large">Liên hệ</button>
+
                 <div id="modal" class="modal">
                     <div class="modal-content">
                         <span id="closeBtn" class="close">&times;</span>
                         <h2>Gửi đề nghị giá</h2>
-                        <form action="MakeOfferServlet" method="post">
+
+                        <form action="<%=request.getContextPath()%>/MakeOfferServlet" method="post">
+                            <input type="hidden" name="carId" value="<%=car.getId()%>">
+
                             <input type="text" name="firstName" placeholder="Tên" required>
                             <input type="text" name="lastName" placeholder="Họ và lót" required>
                             <input type="email" name="email" placeholder="Email" required>
@@ -137,7 +146,6 @@
         </div>
     </div>
 
-    <!-- Description Section -->
     <div class="description-section">
         <h2>Mô tả chi tiết</h2>
         <p>
@@ -196,68 +204,37 @@
         </c:otherwise>
     </c:choose>
 
-    <!--hiển thị xe liên quan-->
-    <c:if test="${not empty relatedCars}">
-        <div class="description-section related-cars-section">
-            <h2 style="text-align:center; font-size: 24px;margin-bottom: 25px;">Bạn có thể quan tâm</h2>
+        <%
+            }
+        %>
+    </div>
 
-            <div class="grid-cards" style="grid-template-columns: repeat(4, 1fr);gap: 20px;">
-                <c:forEach var="rCar" items="${relatedCars}">
-                    <article class="card car-card">
-                        <a href="CarDetailServlet?id=${rCar.id}" class="card-link">
-                            <div class="card-media">
-
-                                <c:set var="rImg" value="${empty rCar.image ?'image/logo.png' : (rCar.image.startsWith('image/') ? rCar.image : 'image/'.concat(rCar.image))}"/>
-
-                                <img src="${rImg}" alt="${rCar.brand} ${rCar.model}"/>
-
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">${rCar.brand} ${rCar.model}</h4>
-                                <div class="card-info">
-                                    <span>📅 ${rCar.year}</span>
-                                    <span>🚗 <fmt:formatNumber value="${rCar.mileage}" type="number" groupingUsed="true"/> km</span>
-                                    <span>📍 ${rCar.location}</span>
-                                </div>
-                                <div class="price">
-                                    <fmt:formatNumber value="${rCar.price}" type="number" groupingUsed="true"/>₫
-                                </div>
-                                <div class="card-footer">
-                                    <button class="btn btn-primary">Khám phá</button>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-                </c:forEach>
-        </div>
-    </c:if>
-
-    <!-- Back button -->
     <div style="text-align: center; margin-bottom: 40px;">
         <a href="home.jsp" class="btn btn-ghost" style="text-decoration: none">← Quay lại danh sách</a>
     </div>
-
 </main>
 
-<!-- Footer -->
 <footer class="site-footer">
     <div class="container footer-inner">
         <div class="brand-col">
             <div class="logo">Car Store</div>
             <p class="muted">Chợ ô tô tin cậy — Kết nối người mua &amp; người bán</p>
         </div>
+
         <div class="links-col">
             <h4>Về chúng tôi</h4>
             <ul>
-                <li><a href="gioi-thieu.jsp">Giới thiệu</a></li>
+                <li><a href="<%=request.getContextPath()%>/gioi-thieu.jsp">Giới thiệu</a></li>
                 <li><a href="#contact">Liên hệ</a></li>
             </ul>
         </div>
+
         <div class="contact-col">
             <h4>Hỗ trợ</h4>
             <p class="muted">hotline: 1900 0000</p>
         </div>
     </div>
+
     <div class="footer-bottom">
         <div class="container">© 2025 Car Store. Bản quyền thuộc về Car Store.</div>
     </div>

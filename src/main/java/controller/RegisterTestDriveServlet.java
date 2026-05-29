@@ -7,6 +7,9 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import dao.DBConnection;
 
 @WebServlet(name = "RegisterTestDriveServlet", value = "/RegisterTestDriveServlet")
@@ -54,6 +57,15 @@ public class RegisterTestDriveServlet extends HttpServlet {
         String testTime = request.getParameter("time");
 
         try (Connection conn = DBConnection.getConnection()) {
+            LocalDateTime selectedDateTime = LocalDateTime.of(
+                    LocalDate.parse(testDate),
+                    LocalTime.parse(testTime));
+
+            if (selectedDateTime.isBefore(LocalDateTime.now())) {
+                response.sendRedirect(
+                        request.getContextPath() + "/testDrive.jsp?error=past&carId=" + carId);
+                return;
+            }
 
             String sql = "INSERT INTO test_drive_registration "
                     + "(car_id, car_name, full_name, phone, test_date, test_time) "
