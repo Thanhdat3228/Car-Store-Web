@@ -1,6 +1,18 @@
 <%@ page import="model.Car" %>
 <%@ page import="model.CarSpecs" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="model.Car"%>
+<%@ page import="model.CarSpecs"%>
+
+<%
+    Car car = (Car) request.getAttribute("car");
+    if (car == null) {
+        response.sendRedirect(request.getContextPath() + "/home.jsp?error=notfound");
+        return;
+    }
+
+    CarSpecs specs = (CarSpecs) request.getAttribute("specs");
+%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
 <%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
@@ -40,7 +52,8 @@ CarSpecs specs = (CarSpecs) request.getAttribute("specs");
     <c:redirect url="home.jsp?error=notfound"/>
 </c:if>
 
-<!-- Main content -->
+<%@ include file="headerForAll.jsp" %>
+
 <main class="car-detail-container">
     <div class="car-detail-grid">
         <!-- Image Gallery Section -->
