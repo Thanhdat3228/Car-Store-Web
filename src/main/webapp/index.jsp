@@ -204,7 +204,7 @@
                                                         <fmt:formatNumber value="${car.price}" type="number" groupingUsed="true" /> ₫
                                                     </div>
                                                 <div class="card-footer">
-                                                    <button class="btn btn-primary">Khám phá</button>
+                                                    <button class="btn btn-primary">Liên hệ</button>
                                                 </div>
                                                 </div>
 

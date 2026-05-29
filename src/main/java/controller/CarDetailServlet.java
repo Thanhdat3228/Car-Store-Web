@@ -56,12 +56,6 @@ public class CarDetailServlet extends HttpServlet {
             request.setAttribute("car", car);
             request.setAttribute("specs", specs);
             request.setAttribute("imageList", imageList);
-
-            //lấy xe liên quan cùng hãng
-            List<Car> relatedCars = dao.getRelatedCars(car.getId(), car.getBrand(),3);
-
-            request.setAttribute("relatedCars", relatedCars);
-
             RequestDispatcher rd = request.getRequestDispatcher("car_detail.jsp");
             rd.forward(request, response);
 
