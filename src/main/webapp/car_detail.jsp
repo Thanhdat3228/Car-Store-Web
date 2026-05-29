@@ -36,15 +36,6 @@
 </head>
 
 <body>
-<%
-Car car = (Car) request.getAttribute("car");
-if (car == null) {
-response.sendRedirect(request.getContextPath() + "/home.jsp?error=notfound");
-return;
-}
-
-CarSpecs specs = (CarSpecs) request.getAttribute("specs");
-%>
 
 
 <!-- Kiểm tra car có tồn tại không -->
@@ -140,7 +131,7 @@ CarSpecs specs = (CarSpecs) request.getAttribute("specs");
             </div>
 
             <div class="action-buttons">
-                <form action="testDrive.jsp" method="get">
+                <form action="/TestDriveAuthServlet" method="get">
                     <input type="hidden" name="carId" value="<c:out value="${car.id}"/>">
                     <button type="submit" class="btn btn-primary btn-large">
                         Đăng ký lái thử
