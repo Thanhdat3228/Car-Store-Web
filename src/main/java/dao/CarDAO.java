@@ -279,4 +279,34 @@ public class CarDAO {
 
         return list;
     }
+    public List<Car> getRelatedCars(int currentCarId, String brand, int limit){
+        List<Car> list = new ArrayList<>();
+        //Tìm xe cùng hãng, khác id hiện tại, số xe hiển thị?
+        String sql="SELECT * FROM cars WHERE brand = ? AND id != ? ORDER BY id DESC LIMIT ?";
+
+        try(Connection conn=DBConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ps.setString(1, brand);
+            ps.setInt(2, currentCarId);
+            ps.setInt(3, limit);
+
+            ResultSet rs= ps.executeQuery();
+            while (rs.next()){
+                Car car=new Car();
+                car.setId(rs.getInt("id"));
+                car.setBrand(rs.getString("brand"));
+                car.setModel(rs.getString("model"));
+                car.setYear(rs.getInt("year"));
+                car.setMileage(rs.getInt("mileage"));
+                car.setPrice(rs.getDouble("price"));
+                car.setLocation(rs.getString("location"));
+                car.setImage(rs.getString("image"));
+                list.add(car);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
