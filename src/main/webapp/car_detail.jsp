@@ -1,3 +1,5 @@
+<%@ page import="model.Car" %>
+<%@ page import="model.CarSpecs" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
@@ -22,6 +24,16 @@
 </head>
 
 <body>
+<%
+Car car = (Car) request.getAttribute("car");
+if (car == null) {
+response.sendRedirect(request.getContextPath() + "/home.jsp?error=notfound");
+return;
+}
+
+CarSpecs specs = (CarSpecs) request.getAttribute("specs");
+%>
+
 
 <!-- Kiểm tra car có tồn tại không -->
 <c:if test="${empty car}">
@@ -204,10 +216,40 @@
         </c:otherwise>
     </c:choose>
 
-        <%
-            }
-        %>
-    </div>
+    <!--hiển thị xe liên quan-->
+    <c:if test="${not empty relatedCars}">
+    <div class="description-section related-cars-section">
+        <h2 style="text-align:center; font-size: 24px;margin-bottom: 25px;">Bạn có thể quan tâm</h2>
+
+        <div class="grid-cards" style="grid-template-columns: repeat(4, 1fr);gap: 20px;">
+            <c:forEach var="rCar" items="${relatedCars}">
+                <article class="card car-card">
+                    <a href="CarDetailServlet?id=${rCar.id}" class="card-link">
+                        <div class="card-media">
+
+                            <c:set var="rImg" value="${empty rCar.image ?'image/logo.png' : (rCar.image.startsWith('image/') ? rCar.image : 'image/'.concat(rCar.image))}"/>
+                            <img src="${rImg}" alt="${rCar.brand} ${rCar.model}"/>
+
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">${rCar.brand} ${rCar.model}</h4>
+                            <div class="card-info">
+                                <span>📅 ${rCar.year}</span>
+                                <span>🚗 <fmt:formatNumber value="${rCar.mileage}" type="number" groupingUsed="true"/> km</span>
+                                <span>📍 ${rCar.location}</span>
+                            </div>
+                            <div class="price">
+                                <fmt:formatNumber value="${rCar.price}" type="number" groupingUsed="true"/>₫
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Liên hệ</button>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </c:forEach>
+        </div>
+        </c:if>
 
     <div style="text-align: center; margin-bottom: 40px;">
         <a href="home.jsp" class="btn btn-ghost" style="text-decoration: none">← Quay lại danh sách</a>
