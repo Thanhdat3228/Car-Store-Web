@@ -1,8 +1,6 @@
 <%@ page import="model.Car" %>
 <%@ page import="model.CarSpecs" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ page import="model.Car"%>
-<%@ page import="model.CarSpecs"%>
 
 <%
     Car car = (Car) request.getAttribute("car");
@@ -42,8 +40,6 @@
 <c:if test="${empty car}">
     <c:redirect url="home.jsp?error=notfound"/>
 </c:if>
-
-<%@ include file="headerForAll.jsp" %>
 
 <main class="car-detail-container">
     <div class="car-detail-grid">
