@@ -7,11 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Car;
-
+import model.CarSpecs;
 public class CarDAO {
 
     public Car getCarById(int id) {
         Car car = null;
+        CarSpecsDAO specsDAO = new CarSpecsDAO();
         try (Connection conn = DBConnection.getConnection()) {
             String sql = "SELECT * FROM cars WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -28,6 +29,7 @@ public class CarDAO {
                 car.setLocation(rs.getString("location"));
                 car.setDescription(rs.getString("description"));
                 car.setImage(rs.getString("image"));
+                car.setSpecs(specsDAO.getSpecsByCarId(car.getId()));
             }
             conn.close();
             ps.close();
@@ -40,7 +42,7 @@ public class CarDAO {
 
     public List<Car> searchCars(String keyword, String location) {
         List<Car> list = new ArrayList<>();
-
+        CarSpecsDAO specsDAO = new CarSpecsDAO();
         String sql = "SELECT * FROM cars WHERE 1=1 ";
 
         if (keyword != null && !keyword.trim().isEmpty()) {
@@ -77,6 +79,7 @@ public class CarDAO {
                 car.setLocation(rs.getString("location"));
                 car.setImage(rs.getString("image"));
 
+                car.setSpecs(specsDAO.getSpecsByCarId(car.getId()));
                 list.add(car);
             }
 
@@ -99,6 +102,7 @@ public class CarDAO {
 
     private List<Car> getCarsByQuery(String sql) {
         List<Car> list = new ArrayList<>();
+        CarSpecsDAO specsDAO = new CarSpecsDAO();
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
@@ -113,6 +117,7 @@ public class CarDAO {
                 car.setLocation(rs.getString("location"));
                 car.setImage(rs.getString("image"));
 
+                car.setSpecs(specsDAO.getSpecsByCarId(car.getId()));
                 list.add(car);
             }
         } catch (SQLException e) {
@@ -132,6 +137,7 @@ public class CarDAO {
 
     public List<Car> searchByName(String keyword) {
         List<Car> list = new ArrayList<>();
+        CarSpecsDAO specsDAO = new CarSpecsDAO();
         String sql = "SELECT * FROM cars WHERE CONCAT(brand, ' ', model) LIKE ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -148,6 +154,8 @@ public class CarDAO {
                 car.setLocation(rs.getString("location"));
                 car.setImage(rs.getString("image"));
                 car.setDescription(rs.getString("description"));
+
+                car.setSpecs(specsDAO.getSpecsByCarId(car.getId()));
                 list.add(car);
             }
         } catch (Exception e) {
@@ -205,7 +213,7 @@ public class CarDAO {
                                 String price) {
 
         List<Car> list = new ArrayList<>();
-
+        CarSpecsDAO specsDAO = new CarSpecsDAO();
         String sql = "SELECT * FROM cars WHERE 1=1 ";
 
         // lọc theo brand
@@ -270,6 +278,7 @@ public class CarDAO {
                 car.setImage(rs.getString("image"));
                 car.setDescription(rs.getString("description"));
 
+                car.setSpecs(specsDAO.getSpecsByCarId(car.getId()));
                 list.add(car);
             }
 
@@ -281,6 +290,7 @@ public class CarDAO {
     }
     public List<Car> getRelatedCars(int currentCarId, String brand, int limit){
         List<Car> list = new ArrayList<>();
+        CarSpecsDAO specsDAO = new CarSpecsDAO();
         //Tìm xe cùng hãng, khác id hiện tại, số xe hiển thị?
         String sql="SELECT * FROM cars WHERE brand = ? AND id != ? ORDER BY id DESC LIMIT ?";
 
@@ -302,6 +312,8 @@ public class CarDAO {
                 car.setPrice(rs.getDouble("price"));
                 car.setLocation(rs.getString("location"));
                 car.setImage(rs.getString("image"));
+
+                car.setSpecs(specsDAO.getSpecsByCarId(car.getId()));
                 list.add(car);
             }
         }catch (Exception e) {

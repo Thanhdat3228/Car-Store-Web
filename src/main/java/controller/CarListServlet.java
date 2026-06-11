@@ -30,7 +30,7 @@ public class CarListServlet extends HttpServlet {
             // Với mỗi xe, lấy thêm specs từ CarSpecsDAO
             for (Car car : carList) {
                 CarSpecs specs = carSpecsDAO.getSpecsByCarId(car.getId());
-                car.setSpec(specs); // gắn spec vào car
+                car.setSpecs(specs); // gắn spec vào car
             }
 
             // Đưa list vào request
