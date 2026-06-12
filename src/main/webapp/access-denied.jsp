@@ -14,8 +14,17 @@
     <link rel="stylesheet" href="css/AccessDeniedStyle.css"/>
 </head>
 <body>
-<h2 class="access-denied">Bạn không có quyền truy cập chức năng này. Vui lòng liên hệ admin để biết thêm thông tin chi tiết</h2>
-<a href="index.jsp" class="btn back-home">Quay lại trang chủ</a>
-<a href="login.jsp" class="btn login-now"> Đăng nhập ngay</a>
+
+<div class="access-denied-container">
+
+    <h2>Truy cập bị từ chối!</h2>
+    <p class="message">Bạn không có quyền truy cập chức năng này. Vui lòng liên hệ <strong>Admin</strong> để biết thêm thông tin chi tiết.</p>
+
+    <div class="button-group">
+        <a href="index.jsp" class="btn btn-primary">Quay lại trang chủ</a>
+        <a href="login.jsp" class="btn btn-secondary">Đăng nhập ngay</a>
+    </div>
+</div>
+
 </body>
 </html>
