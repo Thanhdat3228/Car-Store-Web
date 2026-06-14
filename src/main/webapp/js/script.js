@@ -14,3 +14,20 @@ window.addEventListener("click", function (event){
         modal.style.display="none";
     }
 });
+
+// ── Profile dropdown ──
+function toggleProfileMenu(e) {
+    e.stopPropagation();
+    var menu    = document.getElementById('profileMenu');
+    var chevron = document.getElementById('profileChevron');
+    var isOpen  = menu.classList.contains('open');
+    menu.classList.toggle('open', !isOpen);
+    chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+
+document.addEventListener('click', function () {
+    var menu    = document.getElementById('profileMenu');
+    var chevron = document.getElementById('profileChevron');
+    if (menu)    menu.classList.remove('open');
+    if (chevron) chevron.style.transform = 'rotate(0deg)';
+});
