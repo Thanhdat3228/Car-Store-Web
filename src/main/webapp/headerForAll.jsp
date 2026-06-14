@@ -11,7 +11,7 @@
         <div class="logo">Car Store</div>
 
         <nav class="nav">
-          <a href="index.jsp">Trang chủ</a>
+          <a href="${pageContext.request.contextPath}/HomeServlet">Trang chủ</a>
           <a href="home.jsp">Mua xe</a>
           <a href="sellCar.jsp">Đăng bán</a>
           <a href="gioi-thieu.jsp">Giới thiệu</a>
