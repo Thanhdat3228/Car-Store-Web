@@ -1,6 +1,82 @@
-.button-group{
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9; /* Nền xám nhạt sang trọng */
     display: flex;
-
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+/* Khung container thông báo */
+.access-denied-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.error-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.access-denied-container h2 {
+    color: #1e3c72; /* Màu xanh đậm của trang chủ */
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.access-denied-container .message {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Group chứa các nút bấm */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Tạo khoảng cách giữa 2 nút */
+}
+
+/* Định dạng chung cho nút bấm giống trang chủ */
+.btn {
+    text-decoration: none;
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Nút Quay lại trang chủ - Màu xanh dương phối viền vàng (giống nút Xem xe ngay) */
+.btn-primary {
+    border: 2px solid #ffcc00;
+    color: #1e3c72;
+    background-color: transparent;
+}
+
+.btn-primary:hover {
+    background-color: #ffcc00;
+    color: #fff;
+}
+
+/* Nút Đăng nhập ngay - Màu đỏ (giống nút Đăng bán xe) */
+.btn-secondary {
+    background-color: #d92d20;
+    color: white;
+    border: 2px solid #d92d20;
+}
+
+.btn-secondary:hover {
+    background-color: #b21f16;
+    border-color: #b21f16;
+    box-shadow: 0 4px 12px rgba(217, 45, 32, 0.3);
 }

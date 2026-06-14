@@ -9,6 +9,7 @@ import java.util.List;
 
 import dao.CarDAO;
 import model.Car;
+import dao.TestDriveDAO;
 
 
 @WebServlet(name = "HomeServlet", value = "/HomeServlet")
@@ -27,6 +28,12 @@ public class HomeServlet extends HttpServlet {
         List<Car> carList = carDAO.getAllCars(); // lấy toàn bộ xe
 
         request.setAttribute("carList", carList);
+        TestDriveDAO testDriveDAO =
+                new TestDriveDAO();
+
+        request.setAttribute(
+                "approvedSchedules",
+                testDriveDAO.getApprovedRequests());
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
