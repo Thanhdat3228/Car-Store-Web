@@ -743,3 +743,33 @@ body {
 
 .profile-menu-item:hover { background: #f1f5f9; color: #1e3a8a; }
 .profile-menu-icon { font-size: 16px; width: 20px; text-align: center; }
+.my-test-drive-box{
+    max-width:1200px;
+    margin:20px auto;
+    padding:20px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.notify{
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:8px;
+    font-weight:500;
+}
+
+.pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.approved{
+    background:#d4edda;
+    color:#155724;
+}
+
+.rejected{
+    background:#f8d7da;
+    color:#721c24;
+}
