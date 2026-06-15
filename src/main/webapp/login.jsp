@@ -45,7 +45,7 @@
                         timer: 2000,
                         timerProgressBar: true
                     }).then((result) => {
-                        window.location.href = 'index.jsp';
+                        window.location.href = 'CarListServlet';
                     });
                 }
             });
