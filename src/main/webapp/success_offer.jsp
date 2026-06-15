@@ -9,6 +9,6 @@
 </head>
 <body>
 <h2 class="success">Đăng bán thành công chúng tôi sẽ sớm liên hệ cho bạn</h2>
-<a href="index.jsp" class="back-home">Về trang chủ</a>
+<a href="CarListServlet" class="back-home">Về trang chủ</a>
 </body>
 </html>
