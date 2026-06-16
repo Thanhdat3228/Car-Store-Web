@@ -13,7 +13,7 @@
             <nav class="nav">
               <a href="CarListServlet">Trang chủ</a>
               <a href="home.jsp">Mua xe</a>
-              <a href="sellCar.jsp">Đăng bán</a>
+              <a href="sellCar">Đăng bán</a>
               <a href="gioi-thieu.jsp">Giới thiệu</a>
               <a href="news.jsp">Tin tức</a>
             </nav>
