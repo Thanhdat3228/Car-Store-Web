@@ -96,8 +96,9 @@ CREATE TABLE test_drive_registration (
 
     test_date DATE NOT NULL,
     test_time TIME NOT NULL,
-
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) NOT NULL,
+    username VARCHAR(50) NOT NULL,
 );
 
 -- Tạo bảng User phục vụ login
