@@ -52,7 +52,7 @@
         </div>
 
     </div>
-    <a href="index.jsp" class="back-link">&#8592; Quay về trang chủ</a>
+    <a href="CarListServlet" class="back-link">&#8592; Quay về trang chủ</a>
 </main>
 
 <!-- Footer -->

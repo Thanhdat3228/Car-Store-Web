@@ -4,11 +4,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Liên hệ thành công</title>
-    <link rel="stylesheet" href="css/AccessDeniedStyle.css"/>
+    <title>Đăng bán thành công</title>
+    <link rel="stylesheet" href="css/SuccessPage.css">
 </head>
 <body>
-<h2 class="success">Đăng bán thành công chúng tôi sẽ sớm liên hệ cho bạn</h2>
-<a href="CarListServlet" class="back-home">Về trang chủ</a>
+<div class="container">
+    <div class="icon">✔️</div>
+    <h2 class="success">Đề nghị giá xe thành công!</h2>
+    <p class="message">Cảm ơn bạn đã tin tưởng Car Store. Chúng tôi sẽ liên hệ cho bạn ngay.</p>
+    <a href="CarListServlet" class="back-home">Về trang chủ</a>
+</div>
 </body>
 </html>
