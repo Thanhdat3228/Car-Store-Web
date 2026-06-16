@@ -12,7 +12,6 @@
 <div class="test-drive-container">
     <h2>Lịch lái thử của tôi</h2>
     <div class="schedule-list">
-
         <c:forEach var="t" items="${myTestDrives}">
 
             <div class="schedule-card">
@@ -59,6 +58,31 @@
         </c:forEach>
 
     </div>
+    <a href="index.jsp" class="back-link">&#8592; Quay về trang chủ</a>
+
 </div>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="brand-col">
+            <div class="logo">Car Store</div>
+            <p class="muted">Chợ ô tô tin cậy — Kết nối người mua &amp; người bán</p>
+        </div>
+        <div class="links-col">
+            <h4>Về chúng tôi</h4>
+            <ul>
+                <li><a href="gioi-thieu.jsp">Giới thiệu</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div class="contact-col">
+            <h4>Hỗ trợ</h4>
+            <p class="muted">Hotline: 1900 0000</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">© 2025 AutoSieuLuot. Bản quyền thuộc về AutoSieuLuot.</div>
+    </div>
+</footer>
 </body>
 </html>
