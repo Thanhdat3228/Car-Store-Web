@@ -43,13 +43,13 @@ public class RegisterTestDriveServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-
+        HttpSession session = request.getSession();
+        String username =(String) session.getAttribute("user");
         String carId = request.getParameter("carId");
         if (carId == null || carId.isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/home.jsp");
             return;
         }
-
         String carName = request.getParameter("carName");
         String fullName = request.getParameter("fullname");
         String phone = request.getParameter("phone");
@@ -68,8 +68,8 @@ public class RegisterTestDriveServlet extends HttpServlet {
             }
 
             String sql = "INSERT INTO test_drive_registration "
-                    + "(car_id, car_name, full_name, phone, test_date, test_time) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";
+                    + "(car_id, car_name, full_name, phone, test_date, test_time,username) "
+                    + "VALUES (?,?,?,?,?,?,?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(carId));
@@ -78,7 +78,7 @@ public class RegisterTestDriveServlet extends HttpServlet {
             ps.setString(4, phone);
             ps.setDate(5, java.sql.Date.valueOf(testDate));
             ps.setTime(6, java.sql.Time.valueOf(testTime + ":00"));
-
+            ps.setString(7, username);
             ps.executeUpdate();
 
             response.sendRedirect(request.getContextPath() + "/testDriveSuccess.jsp");

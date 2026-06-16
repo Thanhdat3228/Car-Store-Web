@@ -156,7 +156,6 @@
                                         </c:choose>
                                     </p>
                                 </div>
-
                                 <form action="SortServlet" method="get">
                                     <div class="sort">
                                         <label>Sắp xếp</label> <select name="sort" onchange="this.form.submit()">
@@ -213,15 +212,10 @@
 
                                 </c:forEach>
                             </div>
-
                         </section>
-
-
                     </main>
-
-
-
                     <!-- Footer -->
+
                     <footer class="site-footer">
                         <div class="container footer-inner">
                             <div class="brand-col">
@@ -248,5 +242,4 @@
                     </footer>
                     <script src="js/script.js"></script>
                 </body>
-
                 </html>
