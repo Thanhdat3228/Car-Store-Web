@@ -151,4 +151,121 @@ WHERE image IS NOT NULL AND image != '';
 -- INSERT INTO car_images (car_id, image_path, sort_order) VALUES (1, 'image/tên-ảnh.jpg', 2);
 -- INSERT INTO car_images (car_id, image_path, sort_order) VALUES (1, 'image/tên-ảnh.jpg', 3);
 
+-- 1. Bảng hãng xe
+CREATE TABLE IF NOT EXISTS car_brands (
+      id   INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(100) NOT NULL UNIQUE
+    );
+
+-- 2. Bảng dòng xe (liên kết hãng)
+CREATE TABLE IF NOT EXISTS car_models_catalog (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       brand_id INT NOT NULL,
+       model_name VARCHAR(150) NOT NULL,
+    FOREIGN KEY (brand_id) REFERENCES car_brands(id) ON DELETE CASCADE
+    );
+
+-- 3. Bảng loại nhiên liệu
+CREATE TABLE IF NOT EXISTS fuel_types (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(50) NOT NULL UNIQUE
+    );
+
+-- 4. Bảng kích thước la-zăng
+CREATE TABLE IF NOT EXISTS wheel_sizes (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       size_label VARCHAR(50) NOT NULL UNIQUE
+    );
+
+-- ============================================
+-- Seed: Hãng xe & dòng xe
+-- ============================================
+INSERT IGNORE INTO car_brands (name) VALUES
+    ('Toyota'), ('Honda'), ('Mazda'), ('Ford'), ('KIA'),
+    ('Hyundai'), ('Mercedes-Benz'), ('BMW'), ('Audi'),
+    ('VinFast'), ('Mitsubishi'), ('Suzuki'), ('Nissan'),
+    ('Chevrolet'), ('Peugeot'), ('Volvo'), ('Lexus'), ('Subaru');
+
+INSERT IGNORE INTO car_models_catalog (brand_id, model_name)
+SELECT id, m.model_name
+FROM car_brands b
+         JOIN (
+    SELECT 'Toyota' AS brand, 'Camry' AS model_name UNION ALL
+
+    SELECT 'Toyota','Vios' UNION ALL
+    SELECT 'Toyota','Fortuner' UNION ALL
+    SELECT 'Toyota','Yaris' UNION ALL
+    SELECT 'Honda','Civic' UNION ALL
+    SELECT 'Honda','CR-V' UNION ALL
+    SELECT 'Honda','City' UNION ALL
+    SELECT 'Honda','HR-V' UNION ALL
+    SELECT 'Honda','Accord' UNION ALL
+    SELECT 'Honda','BR-V' UNION ALL
+    SELECT 'Mazda','Mazda 3' UNION ALL
+    SELECT 'Mazda','Mazda 6' UNION ALL
+    SELECT 'Mazda','CX-5' UNION ALL
+    SELECT 'Mazda','CX-8' UNION ALL
+    SELECT 'Ford','Ranger' UNION ALL
+    SELECT 'Ford','Everest' UNION ALL
+    SELECT 'Ford','Territory' UNION ALL
+    SELECT 'Ford','Explorer' UNION ALL
+    SELECT 'KIA','Seltos' UNION ALL
+    SELECT 'KIA','Sorento' UNION ALL
+    SELECT 'KIA','Carnival' UNION ALL
+    SELECT 'KIA','K3' UNION ALL
+    SELECT 'KIA','Sportage' UNION ALL
+    SELECT 'KIA','Morning' UNION ALL
+    SELECT 'Hyundai','Tucson' UNION ALL
+    SELECT 'Hyundai','Santa Fe' UNION ALL
+    SELECT 'Hyundai','Accent' UNION ALL
+    SELECT 'Hyundai','Elantra' UNION ALL
+    SELECT 'Hyundai','Creta' UNION ALL
+    SELECT 'Mercedes-Benz','C 200' UNION ALL
+    SELECT 'Mercedes-Benz','E 200' UNION ALL
+    SELECT 'Mercedes-Benz','GLC 200' UNION ALL
+    SELECT 'Mercedes-Benz','GLE 300d' UNION ALL
+    SELECT 'Mercedes-Benz','S 450' UNION ALL
+    SELECT 'Mercedes-Benz','A 200' UNION ALL
+    SELECT 'BMW','320i' UNION ALL
+    SELECT 'BMW','520i' UNION ALL
+    SELECT 'BMW','X3' UNION ALL
+    SELECT 'BMW','X5' UNION ALL
+    SELECT 'BMW','X7' UNION ALL
+    SELECT 'Audi','A4' UNION ALL
+    SELECT 'Audi','A6' UNION ALL
+    SELECT 'Audi','Q5' UNION ALL
+    SELECT 'Audi','Q7' UNION ALL
+    SELECT 'VinFast','VF 3' UNION ALL
+    SELECT 'VinFast','VF 5' UNION ALL
+    SELECT 'VinFast','VF 6' UNION ALL
+    SELECT 'VinFast','VF 7' UNION ALL
+    SELECT 'VinFast','VF 8' UNION ALL
+    SELECT 'VinFast','VF 9' UNION ALL
+    SELECT 'Mitsubishi','Xpander' UNION ALL
+    SELECT 'Mitsubishi','Outlander' UNION ALL
+    SELECT 'Mitsubishi','Triton' UNION ALL
+    SELECT 'Mitsubishi','Eclipse Cross' UNION ALL
+    SELECT 'Suzuki','Ertiga' UNION ALL
+    SELECT 'Suzuki','XL7' UNION ALL
+    SELECT 'Nissan','Terra' UNION ALL
+    SELECT 'Nissan','Navara' UNION ALL
+    SELECT 'Lexus','RX 350' UNION ALL
+    SELECT 'Lexus','ES 250' UNION ALL
+    SELECT 'Subaru','Forester' UNION ALL
+    SELECT 'Subaru','Outback'
+) m ON b.name = m.brand;
+
+-- ============================================
+-- Seed: Nhiên liệu
+-- ============================================
+INSERT IGNORE INTO fuel_types (name) VALUES
+    ('Xăng'), ('Dầu diesel'), ('Hybrid'),
+    ('Plug-in Hybrid (PHEV)'), ('Điện (EV)'), ('Xăng/Hybrid');
+
+-- ============================================
+-- Seed: Cỡ la-zăng
+-- ============================================
+INSERT IGNORE INTO wheel_sizes (size_label) VALUES
+    ('14 inch'), ('15 inch'), ('16 inch'), ('17 inch'),
+    ('18 inch'), ('19 inch'), ('20 inch'), ('21 inch'), ('22 inch');
 
