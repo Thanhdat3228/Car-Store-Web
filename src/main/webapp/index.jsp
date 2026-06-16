@@ -215,71 +215,7 @@
                         </section>
                     </main>
                     <!-- Footer -->
-                    <c:if test="${not empty myTestDrives}">
 
-                        <div class="user-notification">
-
-                            <h3>Lịch lái thử của bạn</h3>
-
-                            <c:forEach var="t"
-                                       items="${myTestDrives}">
-
-                                <c:choose>
-
-                                    <c:when test="${t.status=='PENDING'}">
-
-                                        <div class="notify pending">
-
-                                            ⏳ Đơn đăng ký
-                                                ${t.carName}
-
-                                            đang chờ admin duyệt.
-
-                                        </div>
-
-                                    </c:when>
-
-                                    <c:when test="${t.status=='APPROVED'}">
-
-                                        <div class="notify approved">
-
-                                            ✅ Yêu cầu lái thử
-                                                ${t.carName}
-
-                                            của bạn đã được xác nhận.
-
-                                            Vui lòng đến lúc
-
-                                                ${t.testTime}
-
-                                            ngày
-
-                                                ${t.testDate}
-
-                                        </div>
-
-                                    </c:when>
-
-                                    <c:otherwise>
-
-                                        <div class="notify rejected">
-
-                                            ❌ Đơn đăng ký
-                                                ${t.carName}
-
-                                            đã bị từ chối.
-
-                                        </div>
-
-                                    </c:otherwise>
-
-                                </c:choose>
-
-                            </c:forEach>
-
-                        </div>
-
-                    </c:if>
                     <footer class="site-footer">
                         <div class="container footer-inner">
                             <div class="brand-col">
