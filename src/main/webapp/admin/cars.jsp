@@ -19,9 +19,7 @@
     <ul class="nav-links">
         <li><a href="${pageContext.request.contextPath}/admin/cars" class="active"><i class="fas fa-car"></i> Quản lý kho xe</a></li>
         <li><a href="${pageContext.request.contextPath}/admin/test-drives"><i class="fas fa-calendar-check"></i>Lịch lái thử</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> Khách hàng</a></li>
-        <li><a href="#"><i class="fas fa-chart-line"></i> Thống kê</a></li>
-        <li><a href="${pageContext.request.contextPath}/admin/catalog"><i class="fas fa-logo"></i> Quản lý hãng xe</a>
+        <li><a href="${pageContext.request.contextPath}/admin/catalog"><i class="fa fa-tags"></i> Quản lý hãng xe</a>
         <li><a href="${pageContext.request.contextPath}/CarListServlet"><i class="fas fa-home"></i> Xem trang web</a></li>
         <li style="margin-top:auto"><a href="${pageContext.request.contextPath}/LogoutServlet"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
     </ul>
