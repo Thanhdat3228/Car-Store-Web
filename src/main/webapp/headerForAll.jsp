@@ -64,6 +64,11 @@
                                 <span class="profile-menu-icon">&#10084;</span>
                                 <span>Xe yêu thích</span>
                             </a>
+                            <a href="${pageContext.request.contextPath}/my-test-drives.jsp"
+                               class="profile-menu-item">
+                                <span class="profile-menu-icon">&#128663;</span>
+                                <span>Lịch lái thử</span>
+                            </a>
                         </div>
                     </div>
 

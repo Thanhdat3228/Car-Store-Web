@@ -28,16 +28,6 @@ public class HomeServlet extends HttpServlet {
         List<Car> carList = carDAO.getAllCars(); // lấy toàn bộ xe
 
         request.setAttribute("carList", carList);
-        TestDriveDAO testDriveDAO = new TestDriveDAO();
-
-        request.setAttribute("approvedSchedules",testDriveDAO.getApprovedRequests());
-        HttpSession session = request.getSession(false);
-        if(session != null){
-            String username = (String) session.getAttribute("user");
-            if(username != null){
-                request.setAttribute("myTestDrives", testDriveDAO.getByUsername(username));
-            }
-        }
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

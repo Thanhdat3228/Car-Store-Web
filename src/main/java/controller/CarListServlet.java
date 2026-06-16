@@ -3,16 +3,19 @@ package controller;
 
 import dao.CarDAO;
 import dao.CarSpecsDAO;
+import dao.TestDriveDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Car;
 import model.CarSpecs;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "CarListServlet", value = "/CarListServlet")
@@ -34,14 +37,21 @@ public class CarListServlet extends HttpServlet {
             }
 
             // Đưa list vào request
-            request.setAttribute("carList", carList);
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-            rd.forward(request, response);
+            TestDriveDAO testDriveDAO = new TestDriveDAO();
 
+            request.setAttribute("approvedSchedules", testDriveDAO.getApprovedRequests());
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                String username = (String) session.getAttribute("user");
+                if (username != null) {
+                    request.setAttribute("myTestDrives", testDriveDAO.getByUsername(username));
+                }
+            }
+            request.setAttribute("carList",carList);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("home.jsp?error=server");
         }
     }
 }
-
