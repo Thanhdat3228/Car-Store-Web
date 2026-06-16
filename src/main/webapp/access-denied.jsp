@@ -21,7 +21,7 @@
     <p class="message">Bạn không có quyền truy cập chức năng này. Vui lòng liên hệ <strong>Admin</strong> để biết thêm thông tin chi tiết.</p>
 
     <div class="button-group">
-        <a href="index.jsp" class="btn btn-primary">Quay lại trang chủ</a>
+        <a href="CarListServlet" class="btn btn-primary">Quay lại trang chủ</a>
         <a href="login.jsp" class="btn btn-secondary">Đăng nhập ngay</a>
     </div>
 </div>
