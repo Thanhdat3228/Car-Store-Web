@@ -59,15 +59,7 @@
     </section>
 </main>
 
-<footer class="site-footer">
-    <div class="container">
-        <p>&copy; 2025 Car Store. All rights reserved.</p>
-        <nav class="footer-nav">
-            <a href="#contact">Liên hệ</a>
-            <a href="#">Chính sách bảo mật</a>
-            <a href="#">Điều khoản sử dụng</a>
-        </nav>
-    </div>
-</footer>
+<!-- Footer -->
+<%@ include file="footer.jsp" %>
 </body>
 </html>
