@@ -256,31 +256,9 @@
     </div>
 </main>
 
-<footer class="site-footer">
-    <div class="container footer-inner">
-        <div class="brand-col">
-            <div class="logo">Car Store</div>
-            <p class="muted">Chợ ô tô tin cậy — Kết nối người mua &amp; người bán</p>
-        </div>
+<!-- Footer -->
+<%@ include file="footer.jsp" %>
 
-        <div class="links-col">
-            <h4>Về chúng tôi</h4>
-            <ul>
-                <li><a href="<%=request.getContextPath()%>/gioi-thieu.jsp">Giới thiệu</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </div>
-
-        <div class="contact-col">
-            <h4>Hỗ trợ</h4>
-            <p class="muted">hotline: 1900 0000</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">© 2025 Car Store. Bản quyền thuộc về Car Store.</div>
-    </div>
-</footer>
 <script src="js/script.js"></script>
 <script>
     const totalImages = document.querySelectorAll('.gallery-thumb').length;

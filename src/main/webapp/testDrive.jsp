@@ -117,7 +117,7 @@
         <div class="form-actions">
             <button type="submit" class="btn-primary">Xác nhận đăng ký
             </button>
-            <a href="<%=request.getContextPath()%>/index.jsp" class="btn-cancel">Hủy</a>
+            <a href="<%=request.getContextPath()%>/CarListServlet" class="btn-cancel">Hủy</a>
         </div>
 
     </form>
