@@ -8,6 +8,21 @@
     <title>Quản lý xe - Admin Dashboard</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .stat-box {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            padding: 20px;
+            background: #4962bb;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-box h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+    </style>
 </head>
 <body>
 
@@ -38,26 +53,23 @@
             <img src="https://ui-avatars.com/api/?name=Admin&background=4F46E5&color=fff" alt="Admin">
         </div>
     </header>
-<h2>Thống kê Offer</h2>
-<table border="1" cellpadding="5">
-    <tr>
-        <th>Họ tên</th>
-        <th>Email</th>
-        <th>Số điện thoại</th>
-        <th>Lời đề nghị</th>
-        <th>Giá mong muốn</th>
-    </tr>
-    <c:forEach var="offer" items="${offers}">
-        <tr>
-            <td>${offer.firstName} ${offer.lastName}</td>
-            <td>${offer.email}</td>
-            <td>${offer.phone}</td>
-            <td>${offer.message}</td>
-            <td><fmt:formatNumber value="${offer.price}" type="number" groupingUsed="true"/> ₫
-            </td>
-        </tr>
-    </c:forEach>
-</table>
+
+    <h1>Thống kê hệ thống</h1>
+
+<div class="stat-box">
+    <h2>${carCount}</h2>
+    <p>Số lượng xe</p>
+</div>
+
+<div class="stat-box">
+    <h2>${offerCount}</h2>
+    <p>Yêu cầu liên hệ</p>
+</div>
+
+<div class="stat-box">
+    <h2>${testDrivePendingCount}</h2>
+    <p>Lịch lái thử chờ duyệt</p>
+</div>
 </main>
 </body>
 </html>

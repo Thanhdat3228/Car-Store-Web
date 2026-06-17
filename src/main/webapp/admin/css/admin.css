@@ -292,3 +292,16 @@ textarea {
     border-left: 4px solid var(--secondary);
     color: #D1FAE5;
 }
+.stat-box {
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+    padding: 20px;
+    background: #f2f2f2;
+    border-radius: 8px;
+    text-align: center;
+}
+.stat-box h2 {
+    margin: 0;
+    font-size: 2em;
+}
